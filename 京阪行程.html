@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>關西 8 日行程隨身手冊</title>
+    <style>
+        :root {
+            --primary: #e63946;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #1d3557;
+            --sub-text: #457b9d;
+            --border: #edf2f4;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            padding-bottom: 70px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1d3557, #457b9d);
+            color: #fff;
+            padding: 20px 16px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+
+        .container {
+            padding: 12px;
+        }
+
+        .day-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .day-header {
+            padding: 14px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        .day-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tag {
+            background: var(--primary);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+
+        .day-date {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .day-content {
+            display: none;
+            padding: 0 16px 16px 16px;
+            border-top: 1px solid var(--border);
+            background: #fafafa;
+        }
+
+        .day-card.active .day-content {
+            display: block;
+        }
+
+        .timeline {
+            position: relative;
+            margin-top: 12px;
+            padding-left: 18px;
+            border-left: 2px solid #a8dadc;
+        }
+
+        .event {
+            position: relative;
+            margin-bottom: 14px;
+        }
+
+        .event::before {
+            content: '';
+            position: absolute;
+            left: -23px;
+            top: 4px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .time {
+            font-size: 0.75rem;
+            color: var(--sub-text);
+            font-weight: bold;
+        }
+
+        .event-title {
+            font-size: 0.95rem;
+            font-weight: bold;
+            margin: 2px 0;
+        }
+
+        .desc {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .hotel-box {
+            background: #eef4f8;
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: var(--sub-text);
+        }
+
+        /* 底部 Tab 列 */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #fff;
+            display: flex;
+            border-top: 1px solid var(--border);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .nav-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #888;
+            text-decoration: none;
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .icon {
+            font-size: 1.2rem;
+            margin-bottom: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>大阪・京都・奈良 8 日遊</h1>
+        <p>10/16 - 10/23 關西自由行</p>
+    </header>
+
+    <div class="container" id="itinerary">
+
+        <!-- Day 1 -->
+        <div class="day-card active">
+            <div class="day-header" onclick="toggleDay(this)">
+                <div class="day-title">
+                    <span class="tag">D1</span>
+                    <span class="day-date">10/16 (五) 抵達大阪</span>
+                </div>
+                <span>▼</span>
+            </div>
+            <div class="day-content">
+                <div class="timeline">
+                    <div class="event">
+                        <div class="time">18:15</div>
+                        <div class="event-title">抵達關西國際機場</div>
+                        <div class="desc">辦理入境手續、提取行李，搭乘南海電鐵或 JR 特急前往大阪。</div>
+                    </div>
+                    <div class="event">
+                        <div class="time">20:30</div>
+                        <div class="event-title">辦理入住</div>
+                        <div class="desc">前往 SYOGA A house，周邊超商或拉麵店享用宵夜。</div>
+                    </div>
+                </div>
+                <div class="hotel-box">🏨 住宿：SYOGA A house, next to natural park</div>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay(this)">
+                <div class="day-title">
+                    <span class="tag">D2</span>
+                    <span class="day-date">10/17 (六) 大阪歷史與煙火</span>
+                </div>
+                <span>▼</span>
+            </div>
+            <div class="day-content">
+                <div class="timeline">
+                    <div class="event">
+                        <div class="time">09:30</div>
+                        <div class="event-title">大阪城公園 & 天守閣</div>
+                        <div class="desc">漫步公園感受歷史氛圍與登高遠眺市景。</div>
+                    </div>
+                    <div class="event">
+                        <div class="time">14:00</div>
+                        <div class="event-title">梅田商圈 (Umeda)</div>
+                        <div class="desc">在 Grand Front Osaka 或梅田藍天大廈周邊逛街用餐。</div>
+                    </div>
+                    <div class="event">
+                        <div class="time">18:30</div>
+                        <div class="event-title">浪速淀川花火大会 🎆</div>
+                        <div class="desc">前往淀川河川敷（西中島/十三會場）佔位，欣賞年度盛大煙火。</div>
+                    </div>
+                </div>
+                <div class="hotel-box">🏨 住宿：SYOGA A house, next to natural park</div>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay(this)">
+                <div class="day-title">
+                    <span class="tag">D3</span>
+                    <span class="day-date">10/18 (日) 移動至京都 & 清水寺</span>
+                </div>
+                <span>▼</span>
+            </div>
+            <div class="day-content">
+                <div class="timeline">
+                    <div class="event">
+                        <div class="time">10:00</div>
+                        <div class="event-title">退房 ➔ 移動至京都</div>
+                        <div class="desc">搭乘阪急電鐵前往京都烏丸站，飯店寄放行李。</div>
+                    </div>
+                    <div class="event">
+                        <div class="time">13:00</div>
+                        <div class="event-title">清水寺 ➔ 二三年坂 ➔ 祇園</div>
+                        <div class="desc">參觀清水舞台，漫步古風石板路，順遊八坂神社與花見小路。</div>
+                    </div>
+                    <div class="event">
+                        <div class="time">18:30</div>
+                        <div class="event-title">鴨川河畔 & 先鬥町</div>
+                        <div class="desc">鴨川散步，於先鬥町巷弄享用道地京都料理。</div>
+                    </div>
+                </div>
+                <div class="hotel-box">🏨 住宿：京都四條烏丸大和ROYNET飯店</div>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay(this)">
+                <div class="day-title">
+                    <span class="tag">D4</span>
+                    <span class="day-date">10/19 (一) 千鳥居 & 嵐山自然</span>
+                </div>
+                <span>▼</span>
+            </div>
+            <div class="day-content">
+                <div class="timeline">
+                    <div class="event">
+                        <div class="time">07:30</div>
+                        <div class="event-title">伏見稻荷大社（千本鳥居）⛩️</div>
+                        <div class="desc">提早抵達避開人潮，朝聖綿延不絕的朱紅色千本鳥居。</div>
+                    </div>
+                    <div class="event">
+                        <div class="time">12:30</div>
+                        <div class="event-title">嵐山景區（渡月橋 / 竹林小徑）</div>
+                        <div class="desc">穿越竹林小徑，漫步渡月橋並參觀天龍寺。</div>
+                    </div>
+                    <div class="event">
+                        <div class="time">18:00</div>
+                        <div class="event-title">四條烏丸周邊採買與晚餐</div>
+                        <div class="desc">返回飯店周邊，於大丸百貨或烏丸商圈用餐購物。</div>
+                    </div>
+                </div>
+                <div class="hotel-box">🏨 住宿：京都四條烏丸大和ROYNET飯店</div>
+            </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay(this)">
+                <div class="day-title">
+                    <span class="tag">D5</span>
+                    <span class="day-date">10/20 (二) 奈良餵鹿 ➔ 大阪心齋橋</span>
+                </div>
+                <span>▼</span>
+            </div>
+            <div class="day-content">
+                <div class="timeline">
+                    <div class="event">
+                        <div class="time">09:00</div>
+                        <div class="event-title">退房 ➔ 前往奈良</div>
+                        <div class="desc">搭近鐵至「近鐵奈良站」，大行李寄存在車站寄物櫃。</div>
+                    </div>
+                    <div class="event">
+                        <div class="time">10:30</div>
+                        <div class="event-title">奈良公園 & 東大寺 & 春日大社</div>
+                        <div class="desc">與可愛奈良鹿互動，參觀木造東大寺大佛。</div>
+                    </div>
+                    <div class="event">
+                        <div class="time">16:30</div>
+                        <div class="event-title">返大阪 ➔ 心齋橋飯店入住</div>
+                        <div class="desc">搭乘近鐵返回大阪，入住心齋橋。</div>
+                    </div>
+                    <div class="event">
+                        <div class="time">18:30</div>
+                        <div class="event-title">道頓堀美食巡禮</div>
+                        <div class="desc">拍照打卡跑跑人，享用在地章魚燒、大阪燒。</div>
+                    </div>
+                </div>
+                <div class="hotel-box">🏨 住宿：大阪一心齋橋 9 號店</div>
+            </div>
+        </div>
+
+        <!-- Day 6 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay(this)">
+                <div class="day-title">
+                    <span class="tag">D6</span>
+                    <span class="day-date">10/21 (三) 大阪下町與高空夜景</span>
+                </div>
+                <span>▼</span>
+            </div>
+            <div class="day-content">
+                <div class="timeline">
+                    <div class="event">
+                        <div class="time">10:00</div>
+                        <div class="event-title">通天閣 & 新世界</div>
+                        <div class="desc">體驗懷舊下町風情，品嚐道地日式炸串。</div>
+                    </div>
+                    <div class="event">
+                        <div class="time">14:00</div>
+                        <div class="event-title">難波商圈 & 美國村</div>
+                        <div class="desc">逛潮流小店、古著專賣店與 Namba Parks。</div>
+                    </div>
+                    <div class="event">
+                        <div class="time">19:00</div>
+                        <div class="event-title">阿倍野 Harukas 300 展望台</div>
+                        <div class="desc">登上高樓展望台，俯瞰大阪 360 度百萬夜景。</div>
+                    </div>
+                </div>
+                <div class="hotel-box">🏨 住宿：大阪一心齋橋 9 號店</div>
+            </div>
+        </div>
+
+        <!-- Day 7 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay(this)">
+                <div class="day-title">
+                    <span class="tag">D7</span>
+                    <span class="day-date">10/22 (四) 中之島散策 & 最後採買</span>
+                </div>
+                <span>▼</span>
+            </div>
+            <div class="day-content">
+                <div class="timeline">
+                    <div class="event">
+                        <div class="time">10:00</div>
+                        <div class="event-title">中之島公園 & 中央公會堂</div>
+                        <div class="desc">河岸散步放鬆，於河岸咖啡廳享用早午餐。</div>
+                    </div>
+                    <div class="event">
+                        <div class="time">14:00</div>
+                        <div class="event-title">心齋橋 / 梅田大採購</div>
+                        <div class="desc">藥妝、伴手禮、服飾補貨最終回。</div>
+                    </div>
+                </div>
+                <div class="hotel-box">🏨 住宿：大阪一心齋橋 9 號店</div>
+            </div>
+        </div>
+
+        <!-- Day 8 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay(this)">
+                <div class="day-title">
+                    <span class="tag">D8</span>
+                    <span class="day-date">10/23 (五) 賦歸（中午航班）</span>
+                </div>
+                <span>▼</span>
+            </div>
+            <div class="day-content">
+                <div class="timeline">
+                    <div class="event">
+                        <div class="time">08:15</div>
+                        <div class="event-title">辦理退房 ➔ 前往關西機場</div>
+                        <div class="desc">從心齋橋至難波，轉乘南海電鐵 Rapi:t 特急前往機場（約 38 分鐘）。</div>
+                    </div>
+                    <div class="event">
+                        <div class="time">09:30</div>
+                        <div class="event-title">抵達機場與登機準備</div>
+                        <div class="desc">辦理託運、通關，機場免稅店採買後準備登機返台。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 底部 Tab 欄 -->
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active">
+            <span class="icon">📅</span>
+            <span>每日行程</span>
+        </a>
+        <a href="https://www.google.com/maps" target="_blank" class="nav-item">
+            <span class="icon">🗺️</span>
+            <span>Google地圖</span>
+        </a>
+    </nav>
+
+    <script>
+        function toggleDay(headerElement) {
+            const card = headerElement.parentElement;
+            card.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
