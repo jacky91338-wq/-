@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>關西 8 天 7 夜家庭輕鬆遊</title>
+    <title>關西 8 天 7 夜家庭輕鬆遊 (2026年版)</title>
     <style>
         :root {
             --primary: #1d3557;
@@ -17,6 +17,8 @@
             --badge-transit: #2a9d8f;
             --badge-stay: #e9c46a;
             --badge-luggage: #6c5ce7;
+            --train-bg: #eef4f8;
+            --train-border: #b8cddc;
         }
 
         * {
@@ -209,6 +211,39 @@
             line-height: 1.45;
         }
 
+        .train-schedule {
+            background: var(--train-bg);
+            border: 1px solid var(--train-border);
+            border-radius: 6px;
+            padding: 8px 10px;
+            margin-top: 6px;
+            font-size: 0.78rem;
+            color: var(--primary);
+        }
+
+        .train-schedule .title {
+            font-weight: 700;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .train-schedule ul {
+            list-style: none;
+            padding-left: 4px;
+        }
+
+        .train-schedule li {
+            margin-bottom: 2px;
+            line-height: 1.3;
+        }
+
+        .train-schedule li.target {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
         .hotel-box {
             background: #edf2f7;
             border-radius: 8px;
@@ -271,7 +306,7 @@
 
     <header>
         <h1>關西 8 天 7 夜家庭輕鬆遊</h1>
-        <p>每日 08:00 出發 | 精選店家升級版</p>
+        <p>2026/10/16 - 10/23 | 含電車前後班次時刻表</p>
     </header>
 
     <div class="container">
@@ -299,10 +334,17 @@
                         <div class="time">19:30 - 20:20</div>
                         <div class="event-title">前往大阪市區飯店</div>
                         <div class="meta-group">
-                            <span class="badge badge-transit">🚃 交通：南海電鐵 Rapi:t 特急 ➔ 地鐵</span>
-                            <span class="badge badge-stay">⏱️ 車程：約 45 分鐘</span>
+                            <span class="badge badge-transit">🚃 交通：南海電鐵 Rapi:t 特急（關西機場 ➔ 難波）</span>
                         </div>
-                        <div class="desc">搭乘南海電鐵特急至難波/新今宮，轉乘地鐵前往飯店。</div>
+                        <div class="desc">出關後搭乘南海特急直達難波，再轉乘地鐵。</div>
+                        <div class="train-schedule">
+                            <div class="title">⏱️ 車站時刻對照 (南海空港線 - 難波方向)：</div>
+                            <ul>
+                                <li>前一班：19:05 發車 ➔ 19:44 抵難波</li>
+                                <li class="target">預定班：19:35 發車 ➔ 20:14 抵難波</li>
+                                <li>後一班：20:05 發車 ➔ 20:43 抵難波</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="event">
                         <div class="time">20:40</div>
@@ -329,9 +371,9 @@
                         <div class="time">08:00 - 08:30</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Tanimachi+4-chome+Station" target="_blank" class="map-link">前往大阪城公園 📍</a></div>
                         <div class="meta-group">
-                            <span class="badge badge-transit">🚃 交通：Osaka Metro 至谷町四丁目站</span>
-                            <span class="badge badge-stay">⏱️ 車程：約 30 分鐘</span>
+                            <span class="badge badge-transit">🚃 交通：Osaka Metro 谷町線（至谷町四丁目站）</span>
                         </div>
+                        <div class="desc">班距極密（約 4~6 分鐘一班），隨到隨搭即可。</div>
                     </div>
                     <div class="event">
                         <div class="time">08:30 - 11:30</div>
@@ -340,31 +382,24 @@
                             <span class="badge badge-stay">⏱️ 推薦停留：3 小時</span>
                         </div>
                         <div class="desc">
-                            公園散步，登天守閣遠眺。可乘坐園區路面小火車（約 ¥300）減輕家人腳力。<br>
-                            🛍️ <b>特色推薦：</b>MIRAIZA 大阪城（天守閣旁復古建築，內有知名抹茶抹茶生乳捲「抹茶專賣店」與紀念品賣場）。
+                            公園散步，登天守閣遠眺。可乘坐園區小火車（約 ¥300）。<br>
+                            🛍️ <b>特色：</b>MIRAIZA 大阪城（復古建築內有抹茶專賣店與紀念品店）。
                         </div>
                     </div>
                     <div class="event">
                         <div class="time">11:30 - 16:00</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Grand+Front+Osaka" target="_blank" class="map-link">梅田商圈午餐 & 逛街漫步 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-transit">🚃 交通：地鐵谷町線至東梅田站</span>
-                            <span class="badge badge-stay">⏱️ 推薦停留：4.5 小時</span>
-                        </div>
                         <div class="desc">
-                            Grand Front Osaka 或周邊百貨商場用餐，午後步調放慢、輕鬆逛街。<br>
-                            🛍️ <b>特色推薦：</b><br>
-                            ・<b>阪急三番街：</b>Kiddyland 動漫卡通周邊（吉伊卡哇、拉拉熊等）。<br>
-                            ・<b>Grand Front Osaka：</b>Harbs 蛋糕店（必吃水果千層蛋糕）。
+                            🛍️ <b>特色推薦：</b>阪急三番街（Kiddyland 卡通周邊）、Grand Front Osaka（Harbs 水果千層蛋糕）。
                         </div>
                     </div>
                     <div class="event">
                         <div class="time">16:30 - 20:00</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Yodo+River+Park" target="_blank" class="map-link">浪速淀川花火大会 🎆 📍</a></div>
                         <div class="meta-group">
-                            <span class="badge badge-transit">🚃 交通：地鐵御堂筋線至西中島南方站</span>
+                            <span class="badge badge-transit">🚃 交通：Osaka Metro 御堂筋線（梅田 ➔ 西中島南方）</span>
                         </div>
-                        <div class="desc">提早前往淀川河川敷會場佔位，買些小吃等待，欣賞年度盛大煙火（煙火約 19:00 開始）。</div>
+                        <div class="desc">欣賞年度盛大煙火（約 19:00 開始）。班距 3~5 分鐘一班。</div>
                     </div>
                 </div>
                 <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=SYOGA+A+house" target="_blank">SYOGA A house, next to natural park 📍</a></div>
@@ -384,69 +419,63 @@
                 <div class="timeline">
                     <div class="event">
                         <div class="time">07:30 - 08:30</div>
-                        <div class="event-title">大阪退房 ➔ 移動至京都飯店 📍</div>
+                        <div class="event-title">大阪退房 ➔ 移動至京都 📍</div>
                         <div class="meta-group">
-                            <span class="badge badge-transit">🚃 交通：阪急電車（梅田 ➔ 烏丸站）</span>
-                            <span class="badge badge-stay">⏱️ 車程：約 50 分鐘</span>
+                            <span class="badge badge-transit">🚃 交通：阪急京都線特急（大阪梅田 ➔ 烏丸）</span>
                         </div>
-                        <div class="desc">早上退房後攜帶行李直奔京都四條烏丸。</div>
+                        <div class="train-schedule">
+                            <div class="title">⏱️ 車站時刻對照 (阪急梅田站 - 特急烏丸方向)：</div>
+                            <ul>
+                                <li>前一班：07:30 發車 ➔ 08:12 抵烏丸</li>
+                                <li class="target">預定班：07:40 發車 ➔ 08:22 抵烏丸</li>
+                                <li>後一班：07:50 發車 ➔ 08:32 抵烏丸</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="event">
                         <div class="time">08:30 - 08:45</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Daiwa+Roynet+Hotel+Kyoto-Shijo+Karasuma" target="_blank" class="map-link">京都飯店先行寄放行李 🧳 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-luggage">🧳 免費寄放行李</span>
-                        </div>
-                        <div class="desc">抵達「京都四條烏丸大和ROYNET飯店」，於櫃檯免費寄放行李後，輕鬆出發。</div>
+                        <div class="event-title"><a href="https://maps.google.com/?q=Daiwa+Roynet+Hotel+Kyoto-Shijo+Karasuma" target="_blank" class="map-link">京都飯店寄放行李 🧳 📍</a></div>
+                        <div class="desc">四條烏丸大和ROYNET飯店免費寄放行李。</div>
                     </div>
                     <div class="event">
                         <div class="time">08:45 - 09:15</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Fushimi+Inari+Taisha" target="_blank" class="map-link">移動至伏見稻荷 📍</a></div>
                         <div class="meta-group">
-                            <span class="badge badge-transit">🚃 交通：地鐵烏丸線 ➔ JR 奈良線（京都站轉乘 ➔ 稻荷站）</span>
-                            <span class="badge badge-stay">⏱️ 車程：約 25 分鐘</span>
+                            <span class="badge badge-transit">🚃 交通：JR 奈良線（京都站 ➔ 稻荷站）</span>
+                        </div>
+                        <div class="train-schedule">
+                            <div class="title">⏱️ 車站時刻對照 (JR 京都站 - 奈良線普通車)：</div>
+                            <ul>
+                                <li>前一班：08:51 發車 ➔ 08:56 抵稻荷</li>
+                                <li class="target">預定班：09:03 發車 ➔ 09:08 抵稻荷</li>
+                                <li>後一班：09:15 發車 ➔ 09:20 抵稻荷</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="event">
                         <div class="time">09:15 - 11:30</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Fushimi+Inari+Taisha" target="_blank" class="map-link">伏見稻荷大社（千本鳥居）⛩️ 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-stay">⏱️ 推薦停留：2 小時</span>
-                        </div>
-                        <div class="desc">
-                            朝聖朱紅色千本鳥居。<br>
-                            🛍️ <b>特色推薦：</b>參道上「寶玉堂」（百年煎餅老店，招牌狐狸面具煎餅）與「總本家稻荷煎餅」。
-                        </div>
+                        <div class="desc">朝聖千本鳥居。<br>🛍️ <b>特色：</b>寶玉堂（狐狸面具煎餅）。</div>
                     </div>
                     <div class="event">
                         <div class="time">11:30 - 12:15</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Saga-Arashiyama+Station" target="_blank" class="map-link">移動至嵐山景區 📍</a></div>
                         <div class="meta-group">
-                            <span class="badge badge-transit">🚃 交通：JR 嵯峨野線（JR 稻荷 ➔ 京都轉乘 ➔ JR 嵯峨嵐山）</span>
-                            <span class="badge badge-stay">⏱️ 車程：約 40 分鐘</span>
+                            <span class="badge badge-transit">🚃 交通：JR 嵯峨野線（京都站 ➔ 嵯峨嵐山）</span>
+                        </div>
+                        <div class="train-schedule">
+                            <div class="title">⏱️ 車站時刻對照 (JR 京都站 - 嵯峨野線)：</div>
+                            <ul>
+                                <li>前一班：11:37 發車 ➔ 11:54 抵嵐山</li>
+                                <li class="target">預定班：11:53 發車 ➔ 12:10 抵嵐山</li>
+                                <li>後一班：12:08 發車 ➔ 12:24 抵嵐山</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="event">
                         <div class="time">12:15 - 16:30</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Arashiyama+Bamboo+Grove" target="_blank" class="map-link">嵐山午餐 ➔ 渡月橋 ➔ 竹林小徑 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-stay">⏱️ 推薦停留：4 小時</span>
-                        </div>
-                        <div class="desc">
-                            漫步渡月橋與竹林。<br>
-                            🛍️ <b>特色推薦：</b><br>
-                            ・<b>% ARABICA 嵐山店：</b>渡月橋畔人氣景觀咖啡館。<br>
-                            ・<b>中村屋可樂餅：</b>嵐山商店街熱騰騰現炸和牛可樂餅。<br>
-                            ・<b>米飛兔櫻花堂（Miffy Sakura Bakery）：</b>可愛米飛兔造型烘焙與伴手禮。
-                        </div>
-                    </div>
-                    <div class="event">
-                        <div class="time">17:00</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Daiwa+Roynet+Hotel+Kyoto-Shijo+Karasuma" target="_blank" class="map-link">返回飯店辦理 Check-in & 晚餐 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-transit">🚃 交通：阪急電車（嵐山站 ➔ 烏丸站直達）</span>
-                        </div>
-                        <div class="desc">搭乘阪急電車直接回到四條烏丸，領取寄放行李並入住。</div>
+                        <div class="desc">🛍️ <b>特色：</b>% ARABICA 咖啡、中村屋和牛可樂餅、Miffy 櫻花堂。</div>
                     </div>
                 </div>
                 <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=Daiwa+Roynet+Hotel+Kyoto-Shijo+Karasuma" target="_blank">京都四條烏丸大和ROYNET飯店 📍</a></div>
@@ -466,44 +495,22 @@
                 <div class="timeline">
                     <div class="event">
                         <div class="time">08:00 - 08:20</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Shichimiya+Honpo" target="_blank" class="map-link">搭乘計程車至清水坂（七味家本舖）🚖 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-transit">🚖 交通：計程車直達（約 15 分鐘 / 車資約 ¥1,500~2,000）</span>
-                            <span class="badge badge-stay">⏱️ 車程：約 15 分鐘</span>
-                        </div>
-                        <div class="desc">飯店門口搭計程車直達清水坂「七味家本舖」交叉口下車（最靠近仁王門下車點），輕鬆免爬陡坡。</div>
+                        <div class="event-title"><a href="https://maps.google.com/?q=Shichimiya+Honpo" target="_blank" class="map-link">搭計程車直達清水坂頂端 🚖 📍</a></div>
+                        <div class="desc">烏丸飯店門口搭計程車直達七味家本舖（車資約 ¥1,500~2,000），輕鬆免爬陡坡。</div>
                     </div>
                     <div class="event">
                         <div class="time">08:20 - 12:00</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Kiyomizu-dera" target="_blank" class="map-link">仁王門 ➔ 清水舞台 ➔ 二三年坂 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-stay">⏱️ 推薦停留：3.5 小時</span>
-                        </div>
-                        <div class="desc">
-                            仁王門 ➔ 本堂/清水舞台 ➔ 奧之院 ➔ 音羽之瀑 ➔ 下山逛二三年坂（10點後店家陸續開門）。<br>
-                            🛍️ <b>特色推薦：</b><br>
-                            ・<b>七味家本舖：</b>三百年歷史日式七味粉創始老店。<br>
-                            ・<b>藤菜美（三年坂店）：</b>現烤醬油丸子與抹茶組合。<br>
-                            ・<b>阿闍梨餅本舖 滿月：</b>清水坂必買軟Q紅豆麻糬餅。
-                        </div>
+                        <div class="desc">🛍️ <b>特色：</b>七味家本舖、藤菜美醬油丸子、阿闍梨餅。</div>
                     </div>
                     <div class="event">
                         <div class="time">12:00 - 16:30</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Yasaka+Shrine" target="_blank" class="map-link">午餐 ➔ 八坂神社 ➔ 祇園花見小路 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-stay">⏱️ 推薦停留：4.5 小時</span>
-                        </div>
-                        <div class="desc">
-                            平緩好走，輕鬆感受京都古都歷史風情。<br>
-                            🛍️ <b>特色推薦：</b><br>
-                            ・<b>鍵善良房（祇園本店）：</b>必吃清涼解暑「黑糖葛切（くずきり）」。<br>
-                            ・<b>祇園辻利（本店）：</b>經典抹茶霜淇淋與高品質茶葉伴手禮。
-                        </div>
+                        <div class="desc">🛍️ <b>特色：</b>鍵善良房（黑糖葛切）、祇園辻利抹茶。</div>
                     </div>
                     <div class="event">
                         <div class="time">17:00 - 19:30</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Pontocho+Kyoto" target="_blank" class="map-link">鴨川河畔 & 先鬥町晚餐 📍</a></div>
-                        <div class="desc">鴨川河畔散步，於先鬥町巷弄享用京都壽喜燒或町家日式料理。</div>
                     </div>
                 </div>
                 <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=Daiwa+Roynet+Hotel+Kyoto-Shijo+Karasuma" target="_blank">京都四條烏丸大和ROYNET飯店 📍</a></div>
@@ -525,47 +532,40 @@
                         <div class="time">08:00 - 09:00</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Kintetsu-Nara+Station" target="_blank" class="map-link">退房 ➔ 移動至奈良 📍</a></div>
                         <div class="meta-group">
-                            <span class="badge badge-transit">🚃 交通：近鐵京都線（至近鐵奈良站）</span>
-                            <span class="badge badge-stay">⏱️ 車程：約 50 分鐘</span>
+                            <span class="badge badge-transit">🚃 交通：近鐵京都線特急/急行（京都 ➔ 近鐵奈良）</span>
                         </div>
-                        <div class="desc">行李寄存在近鐵奈良站寄物櫃。</div>
+                        <div class="train-schedule">
+                            <div class="title">⏱️ 車站時刻對照 (近鐵京都站 - 奈良方向)：</div>
+                            <ul>
+                                <li>前一班：08:00 發車 (特急) ➔ 08:35 抵奈良</li>
+                                <li class="target">預定班：08:16 發車 (急行) ➔ 09:04 抵奈良</li>
+                                <li>後一班：08:30 發車 (特急) ➔ 09:05 抵奈良</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="event">
                         <div class="time">09:30 - 12:30</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Todai-ji" target="_blank" class="map-link">奈良公園 & 東大寺 🦌 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-stay">⏱️ 推薦停留：3 小時</span>
-                        </div>
-                        <div class="desc">
-                            與奈良鹿互動，參觀木造東大寺大佛。<br>
-                            🛍️ <b>特色推薦：</b><b>中谷堂（近鐵站附近）：</b>電視冠軍知名「現場高速搗艾草麻糬（現打蓬餅）」。
-                        </div>
+                        <div class="desc">🛍️ <b>特色：</b>中谷堂（現打艾草草餅）。</div>
                     </div>
                     <div class="event">
                         <div class="time">12:30 - 16:00</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Kasuga+Taisha" target="_blank" class="map-link">午餐 ➔ 春日大社參道 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-stay">⏱️ 推薦停留：3.5 小時</span>
-                        </div>
-                        <div class="desc">
-                            漫步石燈籠參道。<br>
-                            🛍️ <b>特色推薦：</b><b>志津香釜飯（大佛殿店）：</b>奈良必吃現煮香噴噴七福釜飯（建議提早登記排隊）。
-                        </div>
+                        <div class="desc">🛍️ <b>特色：</b>志津香釜飯。</div>
                     </div>
                     <div class="event">
-                        <div class="time">16:00 - 17:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Shinsaibashi+Osaka" target="_blank" class="map-link">返大阪 ➔ 心齋橋飯店 Check-in 📍</a></div>
+                        <div class="time">16:00 - 17:00</div>
+                        <div class="event-title"><a href="https://maps.google.com/?q=Shinsaibashi+Osaka" target="_blank" class="map-link">返大阪 ➔ 心齋橋 Check-in 📍</a></div>
                         <div class="meta-group">
-                            <span class="badge badge-transit">🚃 交通：近鐵奈良線（至難波/日本橋站）</span>
-                            <span class="badge badge-stay">⏱️ 車程：約 40 分鐘</span>
+                            <span class="badge badge-transit">🚃 交通：近鐵奈良線快速急行（近鐵奈良 ➔ 大阪難波）</span>
                         </div>
-                    </div>
-                    <div class="event">
-                        <div class="time">18:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Dotonbori" target="_blank" class="map-link">道頓堀美食巡禮 📍</a></div>
-                        <div class="desc">
-                            與固力果跑跑人打卡。<br>
-                            🛍️ <b>特色推薦：</b><b>本家大たこ章魚燒</b>、<b>金龍拉麵</b>或<b>串炸田中</b>。
+                        <div class="train-schedule">
+                            <div class="title">⏱️ 車站時刻對照 (近鐵奈良站 - 難波方向)：</div>
+                            <ul>
+                                <li>前一班：15:53 發車 ➔ 16:33 抵難波</li>
+                                <li class="target">預定班：16:06 發車 ➔ 16:46 抵難波</li>
+                                <li>後一班：16:17 發車 ➔ 16:56 抵難波</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -578,7 +578,7 @@
             <div class="day-header" onclick="toggleCard(this)">
                 <div class="day-title">
                     <span class="tag">D6</span>
-                    <span class="day-date">10/21 (三) 通天閣 ➔ 日本橋宅店街 ➔ 難波 ➔ 阿倍野夜景</span>
+                    <span class="day-date">10/21 (三) 通天閣 ➔ 日本橋宅店 ➔ 難波 ➔ 阿倍野夜景</span>
                 </div>
                 <span class="arrow">▼</span>
             </div>
@@ -587,57 +587,36 @@
                     <div class="event">
                         <div class="time">08:00 - 08:30</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Shinsekai" target="_blank" class="map-link">前往通天閣 / 新世界 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-transit">🚃 交通：Osaka Metro 御堂筋線至動物園前站</span>
-                            <span class="badge badge-stay">⏱️ 車程：約 15 分鐘</span>
-                        </div>
+                        <div class="desc">地鐵御堂筋線至動物園前站（約 3~5 分鐘一班）。</div>
                     </div>
                     <div class="event">
                         <div class="time">08:30 - 10:30</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Tsutenkaku" target="_blank" class="map-link">通天閣 & 新世界懷舊散策 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-stay">⏱️ 推薦停留：2 小時</span>
-                        </div>
-                        <div class="desc">
-                            體驗懷舊大阪下町風情。<br>
-                            🛍️ <b>特色推薦：</b><b>元祖串炸達摩（八重勝或通天閣店）：</b>體驗沾醬只沾一次的道地炸串文化。
-                        </div>
+                        <div class="desc">🛍️ <b>特色：</b>元祖串炸達摩（八重勝或通天閣店）。</div>
                     </div>
                     <div class="event">
                         <div class="time">10:30 - 12:30</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Nipponbashi+Ota+Road" target="_blank" class="map-link">日本橋宅店街 (オタロード) 🤖 📍</a></div>
                         <div class="meta-group">
-                            <span class="badge badge-transit">🚶‍♂️ 徒步：從通天閣順路向北走，完全免搭車</span>
-                            <span class="badge badge-stay">⏱️ 推薦停留：2 小時</span>
+                            <span class="badge badge-transit">🚶‍♂️ 徒步：從通天閣順路向北走，免搭車</span>
                         </div>
                         <div class="desc">
-                            店家約 10:30~11:00 開門。沿「宅男大道 (Ota Road)」向北逛：<br>
-                            🛍️ <b>特色店家推薦（由南向北）：</b><br>
-                            ・<b>駿河屋 大阪日本橋本館：</b>周邊/模型/二手海量寶庫。<br>
-                            ・<b>Animate 大阪日本橋店：</b>官方動漫周邊與書籍最齐全旗艦店。<br>
-                            ・<b>Yellow Submarine (黃色潛水艇)：</b>TCG 卡牌專賣與桌遊。<br>
-                            ・<b>K-BOOKS / Lashinbang (羅針盤)：</b>二手精品與同人周邊。
+                            🛍️ <b>特色店家推薦：</b><br>
+                            ・<b>駿河屋 日本橋本館：</b>模型/二手寶庫。<br>
+                            ・<b>Animate 日本橋店：</b>動漫官方旗艦店。<br>
+                            ・<b>Yellow Submarine：</b>TCG 卡牌專賣店。<br>
+                            ・<b>K-BOOKS / 羅針盤：</b>二手精品周邊。
                         </div>
                     </div>
                     <div class="event">
                         <div class="time">12:30 - 16:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Namba+Parks" target="_blank" class="map-link">日本橋/難波午餐 ➔ 難波商圈 & Namba Parks 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-stay">⏱️ 推薦停留：4 小時</span>
-                        </div>
-                        <div class="desc">
-                            Namba Parks 綠意空中花園散步。<br>
-                            🛍️ <b>特色推薦：</b><b>高島屋大阪店（地下美食街）：</b>購買老爺爺起司蛋糕（Rikuro's）與各式精品伴手禮。
-                        </div>
+                        <div class="event-title"><a href="https://maps.google.com/?q=Namba+Parks" target="_blank" class="map-link">難波午餐 ➔ Namba Parks 逛街 📍</a></div>
+                        <div class="desc">🛍️ <b>特色：</b>高島屋（老爺爺起司蛋糕）。</div>
                     </div>
                     <div class="event">
                         <div class="time">17:00 - 19:30</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Abeno+Harukas" target="_blank" class="map-link">阿倍野 Harukas 300 展望台 🏙️ 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-transit">🚃 交通：地鐵御堂筋線至天王寺站</span>
-                            <span class="badge badge-stay">⏱️ 推薦停留：2.5 小時</span>
-                        </div>
-                        <div class="desc">登高欣賞大阪夕陽與 360 度百萬城市夜景。樓下近鐵百貨也非常適合逛街。</div>
+                        <div class="desc">地鐵御堂筋線難波 ➔ 天王寺（約 3 分鐘一班）。欣賞 360 度百萬夜景。</div>
                     </div>
                 </div>
                 <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=Shinsaibashi+Osaka" target="_blank">大阪一心齋橋 9 號店 📍</a></div>
@@ -658,51 +637,22 @@
                     <div class="event">
                         <div class="time">08:00 - 08:40</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Osakako+Station" target="_blank" class="map-link">前往天保山 / 大阪海遊館 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-transit">🚃 交通：Osaka Metro 至大阪港站</span>
-                            <span class="badge badge-stay">⏱️ 車程：約 25 分鐘</span>
-                        </div>
+                        <div class="desc">地鐵中央線至大阪港站（班距 4~5 分鐘一班）。</div>
                     </div>
                     <div class="event">
                         <div class="time">09:00 - 12:30</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Osaka+Aquarium+Kaiyukan" target="_blank" class="map-link">【開館入場】大阪海遊館 & 午餐 🦈 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-stay">⏱️ 推薦停留：3.5 小時</span>
-                        </div>
-                        <div class="desc">
-                            第一批入場避開排隊人潮觀賞鯨鯊。<br>
-                            🛍️ <b>特色推薦：</b>天保山浪花美食橫丁內的<b>北極星蛋包飯（天保山店）</b>與<b>自由軒咖哩</b>。
-                        </div>
-                    </div>
-                    <div class="event">
-                        <div class="time">12:30 - 13:00</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Kitahama+Station" target="_blank" class="map-link">移動至中之島 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-transit">🚃 交通：地鐵中央線（本町轉乘 ➔ 北浜站）</span>
-                            <span class="badge badge-stay">⏱️ 車程：約 25 分鐘</span>
-                        </div>
+                        <div class="desc">🛍️ <b>特色：</b>天保山浪花美食橫丁（北極星蛋包飯、自由軒咖哩）。</div>
                     </div>
                     <div class="event">
                         <div class="time">13:00 - 15:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Nakanoshima+Park" target="_blank" class="map-link">中之島公園 ➔ 中央公會堂 ➔ 河岸下午茶 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-stay">⏱️ 推薦停留：2.5 小時</span>
-                        </div>
-                        <div class="desc">
-                            堂島川河岸散步，欣賞歷史建築。<br>
-                            🛍️ <b>特色推薦：</b><b>MOTO Coffee（北浜店）：</b>鴨川/堂島川熱門河岸露天咖啡館。
-                        </div>
+                        <div class="event-title"><a href="https://maps.google.com/?q=Nakanoshima+Park" target="_blank" class="map-link">中之島公園 ➔ 河岸下午茶 📍</a></div>
+                        <div class="desc">🛍️ <b>特色：</b>MOTO Coffee（熱門河岸景觀咖啡館）。</div>
                     </div>
                     <div class="event">
                         <div class="time">16:00 - 19:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Shinsaibashi-Suji+Shopping+Street" target="_blank" class="map-link">心齋橋 / 難波藥妝與伴手禮採買 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-stay">⏱️ 自由採買</span>
-                        </div>
-                        <div class="desc">
-                            返回市區最後大採購。<br>
-                            🛍️ <b>特色推薦：</b><b>大國藥妝（Daikoku）</b>或<b>OS Drug</b>採買藥妝，<b>心齋橋 PARCO（內有吉卜力橡子共和國與寶可夢中心）</b>。
-                        </div>
+                        <div class="event-title"><a href="https://maps.google.com/?q=Shinsaibashi-Suji+Shopping+Street" target="_blank" class="map-link">心齋橋 / 難波藥妝採買 📍</a></div>
+                        <div class="desc">🛍️ <b>特色：</b>大國藥妝、心齋橋 PARCO（寶可夢中心、橡子共和國）。</div>
                     </div>
                 </div>
                 <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=Shinsaibashi+Osaka" target="_blank">大阪一心齋橋 9 號店 📍</a></div>
@@ -721,25 +671,24 @@
             <div class="day-content">
                 <div class="timeline">
                     <div class="event">
-                        <div class="time">08:00</div>
-                        <div class="event-title">辦理退房出發</div>
-                        <div class="desc">攜帶行李準備前往機場。</div>
-                    </div>
-                    <div class="event">
-                        <div class="time">08:30 - 09:15</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Kansai+International+Airport" target="_blank" class="map-link">前往關西國際機場 📍</a></div>
+                        <div class="time">08:00 - 09:15</div>
+                        <div class="event-title"><a href="https://maps.google.com/?q=Kansai+International+Airport" target="_blank" class="map-link">退房 ➔ 前往關西國際機場 📍</a></div>
                         <div class="meta-group">
-                            <span class="badge badge-transit">🚃 交通：南海電鐵 Rapi:t 特急（難波直達）</span>
-                            <span class="badge badge-stay">⏱️ 車程：約 38 分鐘</span>
+                            <span class="badge badge-transit">🚃 交通：南海電鐵 Rapi:t 特急（難波 ➔ 關西機場）</span>
+                        </div>
+                        <div class="train-schedule">
+                            <div class="title">⏱️ 車站時刻對照 (南海難波站 - 機場特急)：</div>
+                            <ul>
+                                <li>前一班：08:00 發車 ➔ 08:39 抵機場</li>
+                                <li class="target">預定班：08:30 發車 ➔ 09:09 抵機場</li>
+                                <li>後一班：09:00 發車 ➔ 09:39 抵機場</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="event">
                         <div class="time">09:15 - 11:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Kansai+International+Airport" target="_blank" class="map-link">機場託運與免稅店大採購 📍</a></div>
-                        <div class="desc">
-                            辦理登機。<br>
-                            🛍️ <b>特色推薦：</b>關西機場免稅店採買神戶風月堂、白色戀人、Royce 巧克力與獺祭。
-                        </div>
+                        <div class="event-title"><a href="https://maps.google.com/?q=Kansai+International+Airport" target="_blank" class="map-link">機場託運與免稅店採買 📍</a></div>
+                        <div class="desc">🛍️ <b>特色：</b>免稅店採買神戶風月堂、Royce 巧克力、獺祭。</div>
                     </div>
                 </div>
             </div>
