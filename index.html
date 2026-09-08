@@ -16,6 +16,7 @@
             --border: #e0e6ed;
             --badge-transit: #2a9d8f;
             --badge-stay: #e9c46a;
+            --badge-luggage: #6c5ce7;
         }
 
         * {
@@ -196,6 +197,12 @@
             border: 1px solid #ffe0b2;
         }
 
+        .badge-luggage {
+            background-color: #f3e5f5;
+            color: #6a1b9a;
+            border: 1px solid #e1bee7;
+        }
+
         .desc {
             font-size: 0.82rem;
             color: var(--text-sub);
@@ -356,60 +363,80 @@
             </div>
         </div>
 
-        <!-- Day 3 (對調為千鳥居 & 嵐山) -->
+        <!-- Day 3 (調整為先去京都飯店寄放行李) -->
         <div class="day-card">
             <div class="day-header" onclick="toggleCard(this)">
                 <div class="day-title">
                     <span class="tag">D3</span>
-                    <span class="day-date">10/18 (日) 千鳥居 ➔ 嵐山竹林</span>
+                    <span class="day-date">10/18 (日) 先寄行李 ➔ 千鳥居 ➔ 嵐山</span>
                 </div>
                 <span class="arrow">▼</span>
             </div>
             <div class="day-content">
                 <div class="timeline">
                     <div class="event">
-                        <div class="time">08:00 - 08:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Fushimi+Inari+Taisha" target="_blank" class="map-link">前往伏見稻荷 📍</a></div>
+                        <div class="time">07:30 - 08:30</div>
+                        <div class="event-title">大阪退房 ➔ 移動至京都飯店 📍</div>
                         <div class="meta-group">
-                            <span class="badge badge-transit">🚃 交通：JR 奈良線（京都站 ➔ 稻荷站）</span>
-                            <span class="badge badge-stay">⏱️ 車程：約 20 分鐘</span>
+                            <span class="badge badge-transit">🚃 交通：阪急電車（梅田 ➔ 烏丸站）</span>
+                            <span class="badge badge-stay">⏱️ 車程：約 50 分鐘</span>
+                        </div>
+                        <div class="desc">早上退房後攜帶行李直奔京都四條烏丸。</div>
+                    </div>
+                    <div class="event">
+                        <div class="time">08:30 - 08:45</div>
+                        <div class="event-title"><a href="https://maps.google.com/?q=Daiwa+Roynet+Hotel+Kyoto-Shijo+Karasuma" target="_blank" class="map-link">京都飯店先行寄放行李 🧳 📍</a></div>
+                        <div class="meta-group">
+                            <span class="badge badge-luggage">🧳 免費寄放行李</span>
+                        </div>
+                        <div class="desc">抵達「京都四條烏丸大和ROYNET飯店」，於櫃檯免費寄放行李後，輕鬆出發。</div>
+                    </div>
+                    <div class="event">
+                        <div class="time">08:45 - 09:15</div>
+                        <div class="event-title"><a href="https://maps.google.com/?q=Fushimi+Inari+Taisha" target="_blank" class="map-link">移動至伏見稻荷 📍</a></div>
+                        <div class="meta-group">
+                            <span class="badge badge-transit">🚃 交通：地鐵烏丸線 ➔ JR 奈良線（京都站轉乘 ➔ 稻荷站）</span>
+                            <span class="badge badge-stay">⏱️ 車程：約 25 分鐘</span>
                         </div>
                     </div>
                     <div class="event">
-                        <div class="time">08:30 - 11:00</div>
+                        <div class="time">09:15 - 11:30</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Fushimi+Inari+Taisha" target="_blank" class="map-link">伏見稻荷大社（千本鳥居）⛩️ 📍</a></div>
                         <div class="meta-group">
-                            <span class="badge badge-stay">⏱️ 推薦停留：2.5 小時</span>
+                            <span class="badge badge-stay">⏱️ 推薦停留：2 小時</span>
                         </div>
-                        <div class="desc">朝聖朱紅色千本鳥居。家人腳力有限的話，走到前半段即可折返。</div>
+                        <div class="desc">朝聖朱紅色千本鳥居。無行李負擔，散步更為輕鬆舒適。</div>
                     </div>
                     <div class="event">
-                        <div class="time">11:00 - 12:00</div>
+                        <div class="time">11:30 - 12:15</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Saga-Arashiyama+Station" target="_blank" class="map-link">移動至嵐山景區 📍</a></div>
                         <div class="meta-group">
-                            <span class="badge badge-transit">🚃 交通：JR 嵯峨野線（至 JR 嵯峨嵐山站）</span>
-                            <span class="badge badge-stay">⏱️ 車程：約 45 分鐘</span>
+                            <span class="badge badge-transit">🚃 交通：JR 嵯峨野線（JR 稻荷站 ➔ 京都站轉乘 ➔ JR 嵯峨嵐山站）</span>
+                            <span class="badge badge-stay">⏱️ 車程：約 40 分鐘</span>
                         </div>
                     </div>
                     <div class="event">
-                        <div class="time">12:00 - 16:30</div>
+                        <div class="time">12:15 - 16:30</div>
                         <div class="event-title"><a href="https://maps.google.com/?q=Arashiyama+Bamboo+Grove" target="_blank" class="map-link">嵐山午餐 ➔ 渡月橋 ➔ 竹林小徑 📍</a></div>
                         <div class="meta-group">
-                            <span class="badge badge-stay">⏱️ 推薦停留：4.5 小時</span>
+                            <span class="badge badge-stay">⏱️ 推薦停留：4 小時</span>
                         </div>
-                        <div class="desc">漫步渡月橋與竹林，可考慮體驗嵐山人力車，全家放鬆賞景。</div>
+                        <div class="desc">漫步渡月橋與竹林，可體驗嵐山人力車，全家放鬆賞景。</div>
                     </div>
                     <div class="event">
                         <div class="time">17:00</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Daimaru+Kyoto" target="_blank" class="map-link">四條烏丸 / 大丸百貨商圈 📍</a></div>
-                        <div class="desc">搭乘阪急電車返回四條烏丸，飯店 Check-in 並享用晚餐。</div>
+                        <div class="event-title"><a href="https://maps.google.com/?q=Daiwa+Roynet+Hotel+Kyoto-Shijo+Karasuma" target="_blank" class="map-link">返回飯店辦理 Check-in & 晚餐 📍</a></div>
+                        <div class="meta-group">
+                            <span class="badge badge-transit">🚃 交通：阪急電車（嵐山站 ➔ 烏丸站直達）</span>
+                        </div>
+                        <div class="desc">搭乘阪急電車直接回到四條烏丸，領取寄放行李並入住，晚上於周邊商圈享用美食。</div>
                     </div>
                 </div>
                 <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=Daiwa+Roynet+Hotel+Kyoto-Shijo+Karasuma" target="_blank">京都四條烏丸大和ROYNET飯店 📍</a></div>
             </div>
         </div>
 
-        <!-- Day 4 (對調為清水寺) -->
+        <!-- Day 4 -->
         <div class="day-card">
             <div class="day-header" onclick="toggleCard(this)">
                 <div class="day-title">
