@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>關西 8 天 7 夜家庭輕鬆遊 (新增壽屋日本橋店)</title>
+    <title>關西 8 天 7 夜家庭輕鬆遊 (大字體 + 名產推薦版)</title>
     <style>
         :root {
             --primary: #1d3557;
             --accent: #e63946;
             --bg: #f4f6f8;
             --card-bg: #ffffff;
-            --text-main: #2b2d42;
-            --text-sub: #5c677d;
-            --border: #e0e6ed;
-            --badge-transit: #2a9d8f;
-            --badge-stay: #e9c46a;
-            --badge-time: #457b9d;
-            --train-bg: #eef4f8;
-            --train-border: #b8cddc;
+            --text-main: #1a1a1a;
+            --text-sub: #4a5568;
+            --border: #cbd5e1;
+            --badge-transit: #1b4332;
+            --badge-transit-bg: #d8f3dc;
+            --badge-stay: #9a031e;
+            --badge-stay-bg: #ffe5ec;
+            --badge-time: #0077b6;
+            --badge-time-bg: #e0f2fe;
+            --train-bg: #f1f5f9;
+            --train-border: #94a3b8;
         }
 
         * {
@@ -31,13 +34,15 @@
         body {
             background-color: var(--bg);
             color: var(--text-main);
-            padding-bottom: 70px;
+            padding-bottom: 80px;
+            font-size: 18px; /* 全頁基本字體放大 */
+            line-height: 1.6;
         }
 
         header {
             background: linear-gradient(135deg, #1d3557, #457b9d);
             color: #fff;
-            padding: 16px;
+            padding: 18px 16px;
             text-align: center;
             position: sticky;
             top: 0;
@@ -46,31 +51,39 @@
         }
 
         header h1 {
-            font-size: 1.15rem;
-            font-weight: 700;
+            font-size: 1.4rem; /* 標題放大 */
+            font-weight: 800;
         }
 
         header p {
-            font-size: 0.75rem;
-            opacity: 0.9;
-            margin-top: 4px;
+            font-size: 0.95rem;
+            opacity: 0.95;
+            margin-top: 6px;
         }
 
         .container {
             padding: 12px;
         }
 
-        .day-card {
+        .page-section {
+            display: none;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        .day-card, .souvenir-card {
             background: var(--card-bg);
-            border-radius: 12px;
-            margin-bottom: 12px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.04);
-            border: 1px solid var(--border);
+            border-radius: 14px;
+            margin-bottom: 14px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+            border: 1.5px solid var(--border);
             overflow: hidden;
         }
 
         .day-header {
-            padding: 14px 16px;
+            padding: 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -82,27 +95,28 @@
         .day-title {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .tag {
             background: var(--accent);
             color: #fff;
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             font-weight: bold;
-            padding: 3px 8px;
-            border-radius: 6px;
+            padding: 4px 10px;
+            border-radius: 8px;
         }
 
         .day-date {
-            font-weight: 700;
-            font-size: 0.95rem;
+            font-weight: 800;
+            font-size: 1.1rem;
         }
 
         .arrow {
-            font-size: 0.8rem;
+            font-size: 1.1rem;
             color: var(--text-sub);
             transition: transform 0.2s;
+            font-weight: bold;
         }
 
         .day-card.active .arrow {
@@ -111,8 +125,8 @@
 
         .day-content {
             display: none;
-            padding: 12px 16px 16px 16px;
-            border-top: 1px solid var(--border);
+            padding: 16px;
+            border-top: 1.5px solid var(--border);
             background: #fafbfc;
         }
 
@@ -123,13 +137,13 @@
         .timeline {
             position: relative;
             margin-top: 8px;
-            padding-left: 16px;
-            border-left: 2px solid #a8dadc;
+            padding-left: 18px;
+            border-left: 3px solid #70a1ff;
         }
 
         .event {
             position: relative;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         .event:last-child {
@@ -139,90 +153,82 @@
         .event::before {
             content: '';
             position: absolute;
-            left: -21px;
-            top: 5px;
-            width: 8px;
-            height: 8px;
+            left: -24px;
+            top: 7px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background: var(--accent);
         }
 
         .time {
-            font-size: 0.75rem;
+            font-size: 0.95rem;
             color: var(--badge-time);
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .event-title {
-            font-size: 0.95rem;
-            font-weight: 700;
-            margin: 2px 0 4px 0;
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin: 4px 0;
         }
 
         .map-link {
             color: var(--primary);
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .map-link:hover {
-            color: var(--accent);
-            text-decoration: underline;
         }
 
         .meta-group {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 6px;
+            gap: 8px;
+            margin: 8px 0;
         }
 
         .badge {
-            font-size: 0.7rem;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 700;
         }
 
         .badge-transit {
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            border: 1px solid #c8e6c9;
+            background-color: var(--badge-transit-bg);
+            color: var(--badge-transit);
+            border: 1px solid #b7e4c7;
         }
 
         .badge-stay {
-            background-color: #fff3e0;
-            color: #ef6c00;
-            border: 1px solid #ffe0b2;
+            background-color: var(--badge-stay-bg);
+            color: var(--badge-stay);
+            border: 1px solid #ffb3c1;
         }
 
         .badge-hours {
-            background-color: #e1f5fe;
-            color: #0288d1;
-            border: 1px solid #b3e5fc;
+            background-color: var(--badge-time-bg);
+            color: var(--badge-time);
+            border: 1px solid #bae6fd;
         }
 
         .desc {
-            font-size: 0.82rem;
+            font-size: 0.98rem;
             color: var(--text-sub);
-            line-height: 1.45;
+            line-height: 1.6;
         }
 
         .train-schedule {
             background: var(--train-bg);
-            border: 1px solid var(--train-border);
-            border-radius: 6px;
-            padding: 8px 10px;
-            margin-top: 6px;
-            font-size: 0.78rem;
+            border: 1.5px solid var(--train-border);
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-top: 8px;
+            font-size: 0.92rem;
             color: var(--primary);
         }
 
         .train-schedule .title {
-            font-weight: 700;
-            margin-bottom: 4px;
+            font-weight: 800;
+            margin-bottom: 6px;
         }
 
         .train-schedule ul {
@@ -231,27 +237,71 @@
         }
 
         .train-schedule li {
-            margin-bottom: 2px;
+            margin-bottom: 4px;
         }
 
         .train-schedule li.target {
-            font-weight: 700;
+            font-weight: 800;
             color: var(--accent);
+            font-size: 1rem;
         }
 
         .hotel-box {
-            background: #edf2f7;
-            border-radius: 8px;
-            padding: 10px;
-            margin-top: 12px;
-            font-size: 0.8rem;
+            background: #e2e8f0;
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 14px;
+            font-size: 0.95rem;
             color: var(--primary);
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .hotel-box a {
             color: var(--primary);
-            text-decoration: none;
+            text-decoration: underline;
+        }
+
+        /* 名產推薦專區樣式 */
+        .souvenir-category {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 18px 0 10px 4px;
+            padding-left: 8px;
+            border-left: 5px solid var(--accent);
+        }
+
+        .souvenir-item {
+            padding: 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .souvenir-item:last-child {
+            border-bottom: none;
+        }
+
+        .souvenir-name {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .souvenir-loc {
+            font-size: 0.8rem;
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .souvenir-desc {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            margin-top: 6px;
+            line-height: 1.5;
         }
 
         .bottom-nav {
@@ -259,11 +309,11 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 56px;
+            height: 64px;
             background: #fff;
             display: flex;
-            border-top: 1px solid var(--border);
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+            border-top: 2px solid var(--border);
+            box-shadow: 0 -3px 12px rgba(0,0,0,0.08);
             z-index: 1000;
         }
 
@@ -273,18 +323,20 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            font-size: 0.7rem;
+            font-size: 0.85rem;
+            font-weight: 700;
             color: var(--text-sub);
             text-decoration: none;
+            cursor: pointer;
         }
 
         .nav-item.active {
             color: var(--accent);
-            font-weight: bold;
+            font-size: 0.9rem;
         }
 
         .icon {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             margin-bottom: 2px;
         }
     </style>
@@ -292,337 +344,401 @@
 <body>
 
     <header>
-        <h1>關西 8 天 7 夜家庭輕鬆遊</h1>
-        <p>2026/10/16 - 10/23 | 日本橋動漫串聯(含壽屋)完整版</p>
+        <h1 id="header-title">關西 8 天 7 夜家庭輕鬆遊</h1>
+        <p id="header-sub">大字清晰版 ｜ 行程與在地名產指南</p>
     </header>
 
     <div class="container">
 
-        <!-- Day 1 -->
-        <div class="day-card">
-            <div class="day-header" onclick="toggleCard(this)">
-                <div class="day-title">
-                    <span class="tag">D1</span>
-                    <span class="day-date">10/16 (五) 抵達關西機場 ➔ 大阪住宿</span>
-                </div>
-                <span class="arrow">▼</span>
-            </div>
-            <div class="day-content">
-                <div class="timeline">
-                    <div class="event">
-                        <div class="time">18:15</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Kansai+International+Airport" target="_blank" class="map-link">班機抵達關西國際機場 📍</a></div>
-                        <div class="meta-group"><span class="badge badge-stay">⏱️ 停留：75 分鐘</span></div>
-                        <div class="desc">入境手續與提領行李。</div>
+        <!-- 行程分頁 (Page 1) -->
+        <div id="page-itinerary" class="page-section active">
+
+            <!-- Day 1 -->
+            <div class="day-card">
+                <div class="day-header" onclick="toggleCard(this)">
+                    <div class="day-title">
+                        <span class="tag">D1</span>
+                        <span class="day-date">10/16 (五) 抵達關西機場 ➔ 大阪住宿</span>
                     </div>
-                    <div class="event">
-                        <div class="time">19:30 - 20:20</div>
-                        <div class="event-title">關西機場 ➔ 難波 (前往大阪市區)</div>
-                        <div class="meta-group"><span class="badge badge-transit">🚃 交通：南海電鐵 Rapi:t 特急（關西機場站 ➔ 難波站）</span></div>
-                        <div class="train-schedule">
-                            <div class="title">⏱️ 車站時刻對照 (南海機場特急)：</div>
-                            <ul>
-                                <li>前一班：19:05 發車 ➔ 19:44 抵難波</li>
-                                <li class="target">預定班：19:35 發車 ➔ 20:14 抵難波</li>
-                                <li>後一班：20:05 發車 ➔ 20:43 抵難波</li>
-                            </ul>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="day-content">
+                    <div class="timeline">
+                        <div class="event">
+                            <div class="time">18:15</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Kansai+International+Airport" target="_blank" class="map-link">班機抵達關西國際機場 📍</a></div>
+                            <div class="meta-group"><span class="badge badge-stay">⏱️ 停留：75 分鐘</span></div>
+                            <div class="desc">入境手續與提領行李。</div>
+                        </div>
+                        <div class="event">
+                            <div class="time">19:30 - 20:20</div>
+                            <div class="event-title">關西機場 ➔ 難波 (前往大阪市區)</div>
+                            <div class="meta-group"><span class="badge badge-transit">🚃 交通：南海電鐵 Rapi:t 特急</span></div>
+                            <div class="train-schedule">
+                                <div class="title">⏱️ 車站時刻對照：</div>
+                                <ul>
+                                    <li>前一班：19:05 發車 ➔ 19:44 抵難波</li>
+                                    <li class="target">預定班：19:35 發車 ➔ 20:14 抵難波</li>
+                                    <li>後一班：20:05 發車 ➔ 20:43 抵難波</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="event">
+                            <div class="time">20:25 - 20:40</div>
+                            <div class="event-title">難波站 ➔ 飯店 Check-in</div>
+                            <div class="meta-group"><span class="badge badge-transit">🚃 交通：Osaka Metro 谷町線</span></div>
                         </div>
                     </div>
-                    <div class="event">
-                        <div class="time">20:25 - 20:40</div>
-                        <div class="event-title">難波站 ➔ 飯店 Check-in</div>
-                        <div class="meta-group"><span class="badge badge-transit">🚃 交通：Osaka Metro 谷町線（約 15 分鐘）</span></div>
-                        <div class="desc">轉乘地鐵至飯店辦理入住手續。</div>
-                    </div>
+                    <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=SYOGA+A+house" target="_blank">SYOGA A house, next to natural park 📍</a></div>
                 </div>
-                <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=SYOGA+A+house" target="_blank">SYOGA A house, next to natural park 📍</a></div>
             </div>
-        </div>
 
-        <!-- Day 2 -->
-        <div class="day-card">
-            <div class="day-header" onclick="toggleCard(this)">
-                <div class="day-title">
-                    <span class="tag">D2</span>
-                    <span class="day-date">10/17 (六) 大阪城 ➔ 梅田 (Nintendo OSAKA & FIVE LAB) ➔ 淀川煙火</span>
+            <!-- Day 2 -->
+            <div class="day-card">
+                <div class="day-header" onclick="toggleCard(this)">
+                    <div class="day-title">
+                        <span class="tag">D2</span>
+                        <span class="day-date">10/17 (六) 大阪城 ➔ 梅田 (Nintendo & FIVE LAB) ➔ 煙火</span>
+                    </div>
+                    <span class="arrow">▼</span>
                 </div>
-                <span class="arrow">▼</span>
-            </div>
-            <div class="day-content">
-                <div class="timeline">
-                    <div class="event">
-                        <div class="time">08:00 - 08:30</div>
-                        <div class="event-title">飯店 ➔ 大阪城公園 📍</div>
-                        <div class="meta-group"><span class="badge badge-transit">🚃 交通：Osaka Metro 谷町線（谷町四丁目站 1B 出口）</span></div>
-                    </div>
-                    <div class="event">
-                        <div class="time">08:30 - 11:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Osaka+Castle" target="_blank" class="map-link">大阪城公園 & 天守閣 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-hours">🕒 營業時間：09:00 - 18:00</span>
-                            <span class="badge badge-stay">⏱️ 停留：3 小時</span>
+                <div class="day-content">
+                    <div class="timeline">
+                        <div class="event">
+                            <div class="time">08:30 - 11:30</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Osaka+Castle" target="_blank" class="map-link">大阪城公園 & 天守閣 📍</a></div>
+                            <div class="meta-group"><span class="badge badge-hours">🕒 09:00 - 18:00</span></div>
                         </div>
-                        <div class="desc">08:30 於公園散步外觀拍照，09:00 天守閣開門首批進館。</div>
-                    </div>
-                    <div class="event">
-                        <div class="time">11:30 - 11:50</div>
-                        <div class="event-title">大阪城天守閣 ➔ 梅田商圈</div>
-                        <div class="meta-group"><span class="badge badge-transit">🚃 交通：JR 環狀線（大阪城公園站 ➔ 大阪站）</span></div>
-                    </div>
-                    <div class="event">
-                        <div class="time">11:50 - 16:00</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Daimaru+Umeda" target="_blank" class="map-link">梅田商圈 (Nintendo OSAKA & FIVE LAB 巡禮) 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-hours">🕒 營業時間：11:00 - 21:00</span>
-                            <span class="badge badge-stay">⏱️ 停留：4 小時</span>
+                        <div class="event">
+                            <div class="time">11:50 - 16:00</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Daimaru+Umeda" target="_blank" class="map-link">梅田商圈 (Nintendo OSAKA & FIVE LAB) 📍</a></div>
+                            <div class="desc">大丸梅田 13F 抽任天堂整理券，再至 <a href="https://maps.google.com/?q=HEP+FIVE" target="_blank">HEP FIVE B1F｜FIVE LAB 📍</a> 體驗流行 IP 展。</div>
                         </div>
-                        <div class="desc">
-                            🛍️ <b>重點採買行程：</b><br>
-                            1. <b>Nintendo OSAKA：</b>大丸梅田 13 樓抽整理券。<br>
-                            2. <b><a href="https://maps.google.com/?q=HEP+FIVE" target="_blank">HEP FIVE B1F｜FIVE LAB 📍</a>：</b>梅田摩天輪 B1 多媒體流行 IP 展。
+                        <div class="event">
+                            <div class="time">16:30 - 20:00</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Yodo+River+Park" target="_blank" class="map-link">浪速淀川花火大会 🎆 📍</a></div>
                         </div>
                     </div>
-                    <div class="event">
-                        <div class="time">16:00 - 16:20</div>
-                        <div class="event-title">梅田 ➔ 淀川煙火會場</div>
-                        <div class="meta-group"><span class="badge badge-transit">🚃 交通：Osaka Metro 御堂筋線（梅田站 ➔ 西中島南方站）</span></div>
-                    </div>
-                    <div class="event">
-                        <div class="time">16:30 - 20:00</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Yodo+River+Park" target="_blank" class="map-link">浪速淀川花火大会 🎆 📍</a></div>
-                    </div>
+                    <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=SYOGA+A+house" target="_blank">SYOGA A house, next to natural park 📍</a></div>
                 </div>
-                <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=SYOGA+A+house" target="_blank">SYOGA A house, next to natural park 📍</a></div>
             </div>
-        </div>
 
-        <!-- Day 3 -->
-        <div class="day-card">
-            <div class="day-header" onclick="toggleCard(this)">
-                <div class="day-title">
-                    <span class="tag">D3</span>
-                    <span class="day-date">10/18 (日) 大阪 ➔ 京都寄行李 ➔ 伏見稻荷 ➔ 嵐山</span>
+            <!-- Day 3 -->
+            <div class="day-card">
+                <div class="day-header" onclick="toggleCard(this)">
+                    <div class="day-title">
+                        <span class="tag">D3</span>
+                        <span class="day-date">10/18 (日) 大阪 ➔ 京都寄行李 ➔ 伏見稻荷 ➔ 嵐山</span>
+                    </div>
+                    <span class="arrow">▼</span>
                 </div>
-                <span class="arrow">▼</span>
-            </div>
-            <div class="day-content">
-                <div class="timeline">
-                    <div class="event">
-                        <div class="time">07:30 - 08:30</div>
-                        <div class="event-title">大阪退房 ➔ 移動至京都 (烏丸)</div>
-                        <div class="meta-group"><span class="badge badge-transit">🚃 交通：阪急京都線特急（大阪梅田站 ➔ 烏丸站）</span></div>
-                    </div>
-                    <div class="event">
-                        <div class="time">08:30 - 08:45</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Daiwa+Roynet+Hotel+Kyoto-Shijo+Karasuma" target="_blank" class="map-link">京都飯店寄放行李 🧳 📍</a></div>
-                    </div>
-                    <div class="event">
-                        <div class="time">09:15 - 11:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Fushimi+Inari+Taisha" target="_blank" class="map-link">伏見稻荷大社（千本鳥居）⛩️ 📍</a></div>
-                    </div>
-                    <div class="event">
-                        <div class="time">12:15 - 16:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Arashiyama+Bamboo+Grove" target="_blank" class="map-link">嵐山午餐 ➔ 渡月橋 ➔ 竹林小徑 📍</a></div>
-                    </div>
-                </div>
-                <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=Daiwa+Roynet+Hotel+Kyoto-Shijo+Karasuma" target="_blank">京都四條烏丸大和ROYNET飯店 📍</a></div>
-            </div>
-        </div>
-
-        <!-- Day 4 -->
-        <div class="day-card">
-            <div class="day-header" onclick="toggleCard(this)">
-                <div class="day-title">
-                    <span class="tag">D4</span>
-                    <span class="day-date">10/19 (一) 清水寺 ➔ 祇園 ➔ 京都 IP 書店 ➔ 先鬥町</span>
-                </div>
-                <span class="arrow">▼</span>
-            </div>
-            <div class="day-content">
-                <div class="timeline">
-                    <div class="event">
-                        <div class="time">08:20 - 12:00</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Kiyomizu-dera" target="_blank" class="map-link">清水寺 ➔ 二三年坂 📍</a></div>
-                    </div>
-                    <div class="event">
-                        <div class="time">12:15 - 15:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Yasaka+Shrine" target="_blank" class="map-link">午餐 ➔ 八坂神社 ➔ 祇園花見小路 📍</a></div>
-                    </div>
-                    <div class="event">
-                        <div class="time">15:30 - 16:40</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Kawaramachi+OPA" target="_blank" class="map-link">京都 IP 書店 (河原町 OPA 3F) 📚 📍</a></div>
-                    </div>
-                    <div class="event">
-                        <div class="time">16:40 - 19:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Pontocho+Kyoto" target="_blank" class="map-link">鴨川河畔 & 先鬥町晚餐 📍</a></div>
-                    </div>
-                </div>
-                <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=Daiwa+Roynet+Hotel+Kyoto-Shijo+Karasuma" target="_blank">京都四條烏丸大和ROYNET飯店 📍</a></div>
-            </div>
-        </div>
-
-        <!-- Day 5 -->
-        <div class="day-card">
-            <div class="day-header" onclick="toggleCard(this)">
-                <div class="day-title">
-                    <span class="tag">D5</span>
-                    <span class="day-date">10/20 (二) 京都 ➔ 奈良公園 ➔ 大阪 (住一心齋橋9號店 Check-in)</span>
-                </div>
-                <span class="arrow">▼</span>
-            </div>
-            <div class="day-content">
-                <div class="timeline">
-                    <div class="event">
-                        <div class="time">09:15 - 12:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Todai-ji" target="_blank" class="map-link">奈良公園 & 東大寺 🦌 📍</a></div>
-                    </div>
-                    <div class="event">
-                        <div class="time">16:00 - 16:45</div>
-                        <div class="event-title">奈良 ➔ 大阪 (日本橋/長堀橋)</div>
-                        <div class="meta-group"><span class="badge badge-transit">🚃 交通：近鐵奈良線快速急行（近鐵奈良站 ➔ 近鐵日本橋站）</span></div>
-                    </div>
-                    <div class="event">
-                        <div class="time">16:45 - 17:10</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Apartment+Hotel+11+Shinsaibashi+9" target="_blank" class="map-link">住一心齋橋9號店 Check-in 📍</a></div>
-                    </div>
-                </div>
-                <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=Apartment+Hotel+11+Shinsaibashi+9" target="_blank">住一心齋橋9號店 (Apartment Hotel 11 Shinsaibashi 9) 📍</a></div>
-            </div>
-        </div>
-
-        <!-- Day 6 -->
-        <div class="day-card active">
-            <div class="day-header" onclick="toggleCard(this)">
-                <div class="day-title">
-                    <span class="tag">D6</span>
-                    <span class="day-date">10/21 (三) 通天閣 ➔ 檸檬牛舌 ➔ 日本橋動漫街(壽屋/Melonbooks/虎之穴) ➔ Harukas</span>
-                </div>
-                <span class="arrow">▼</span>
-            </div>
-            <div class="day-content">
-                <div class="timeline">
-                    <div class="event">
-                        <div class="time">08:30 - 08:50</div>
-                        <div class="event-title">飯店 ➔ 通天閣 / 新世界 📍</div>
-                        <div class="meta-group"><span class="badge badge-transit">🚃 交通：長堀橋站搭乘 Osaka Metro 堺筋線（往天下茶屋方向，僅 2 站即達惠美須町站 3號出口）</span></div>
-                    </div>
-                    <div class="event">
-                        <div class="time">08:50 - 10:40</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Tsutenkaku" target="_blank" class="map-link">通天閣 & 新世界懷舊散策 📍</a></div>
-                        <div class="meta-group"><span class="badge badge-hours">🕒 營業時間：通天閣 09:00 - 20:00</span></div>
-                    </div>
-                    <div class="event">
-                        <div class="time">10:40 - 11:00</div>
-                        <div class="event-title">通天閣 ➔ 牛舌的檸檬 (千日前/日本橋)</div>
-                        <div class="meta-group"><span class="badge badge-transit">🚶‍♂️ 交通：向北沿堺筋線方向徒步約 10~12 分鐘</span></div>
-                    </div>
-                    <div class="event">
-                        <div class="time">11:00 - 12:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Shinjuku+Yakiniku+Gyutan+no+Lemon+Osaka" target="_blank" class="map-link">【午餐】新宿燒肉 牛舌的檸檬 大阪本店 🍋 📍</a></div>
-                        <div class="meta-group"><span class="badge badge-hours">🕒 營業時間：11:00 - 15:00 / 17:00 - 21:00</span></div>
-                    </div>
-                    <div class="event">
-                        <div class="time">12:30 - 15:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Kotobukiya+Nipponbashi" target="_blank" class="map-link">日本橋動漫宅店大巡禮 (壽屋 / Animate / Melonbooks / 駿河屋) 🤖 📍</a></div>
-                        <div class="meta-group">
-                            <span class="badge badge-hours">🕒 營業時間：約 11:00 - 20:00</span>
-                            <span class="badge badge-transit">🚶‍♂️ 交通：從牛舌店徒步 3~5 分鐘直達日本橋動漫街</span>
+                <div class="day-content">
+                    <div class="timeline">
+                        <div class="event">
+                            <div class="time">07:30 - 08:30</div>
+                            <div class="event-title">大阪退房 ➔ 移動至京都 (烏丸)</div>
+                            <div class="meta-group"><span class="badge badge-transit">🚃 阪急京都線特急（大阪梅田 ➔ 烏丸）</span></div>
                         </div>
-                        <div class="desc">
-                            🛍️ <b>日本橋核心店家指南：</b><br>
-                            ・<b>壽屋 日本橋店（KOTOBUKIYA）：</b>關西最大旗艦店！1~3 樓集結手辦模型、組裝模型（Frame Arms / Megami Device）與限定動漫精品。<br>
-                            ・<b>Melonbooks 大阪日本橋店：</b>位於 Animate 大樓 <b>4 樓</b>，同人誌專賣。<br>
-                            ・<b>Animate 大阪日本橋店：</b>Animate 大樓 1~2 樓，官方周邊。<br>
-                            ・<b>駿河屋（含虎之穴出張所）：</b>二手模型與周邊掘寶。
+                        <div class="event">
+                            <div class="time">09:15 - 11:30</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Fushimi+Inari+Taisha" target="_blank" class="map-link">伏見稻荷大社（千本鳥居）⛩️ 📍</a></div>
+                        </div>
+                        <div class="event">
+                            <div class="time">12:15 - 16:30</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Arashiyama+Bamboo+Grove" target="_blank" class="map-link">嵐山午餐 ➔ 渡月橋 ➔ 竹林小徑 📍</a></div>
                         </div>
                     </div>
-                    <div class="event">
-                        <div class="time">15:30 - 16:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Namba+Parks" target="_blank" class="map-link">難波商圈 (Namba Parks / 高島屋逛街) 📍</a></div>
+                    <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=Daiwa+Roynet+Hotel+Kyoto-Shijo+Karasuma" target="_blank">京都四條烏丸大和ROYNET飯店 📍</a></div>
+                </div>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="day-card">
+                <div class="day-header" onclick="toggleCard(this)">
+                    <div class="day-title">
+                        <span class="tag">D4</span>
+                        <span class="day-date">10/19 (一) 清水寺 ➔ 祇園 ➔ 京都 IP 書店 ➔ 先鬥町</span>
                     </div>
-                    <div class="event">
-                        <div class="time">16:30 - 19:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Abeno+Harukas" target="_blank" class="map-link">阿倍野 Harukas 300 展望台 🏙️ 📍</a></div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="day-content">
+                    <div class="timeline">
+                        <div class="event">
+                            <div class="time">08:20 - 12:00</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Kiyomizu-dera" target="_blank" class="map-link">清水寺 ➔ 二三年坂 📍</a></div>
+                        </div>
+                        <div class="event">
+                            <div class="time">12:15 - 15:30</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Yasaka+Shrine" target="_blank" class="map-link">八坂神社 ➔ 祇園花見小路 📍</a></div>
+                        </div>
+                        <div class="event">
+                            <div class="time">15:30 - 16:40</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Kawaramachi+OPA" target="_blank" class="map-link">京都 IP 書店 (河原町 OPA 3F) 📚 📍</a></div>
+                        </div>
+                        <div class="event">
+                            <div class="time">16:40 - 19:30</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Pontocho+Kyoto" target="_blank" class="map-link">鴨川河畔 & 先鬥町晚餐 📍</a></div>
+                        </div>
+                    </div>
+                    <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=Daiwa+Roynet+Hotel+Kyoto-Shijo+Karasuma" target="_blank">京都四條烏丸大和ROYNET飯店 📍</a></div>
+                </div>
+            </div>
+
+            <!-- Day 5 -->
+            <div class="day-card">
+                <div class="day-header" onclick="toggleCard(this)">
+                    <div class="day-title">
+                        <span class="tag">D5</span>
+                        <span class="day-date">10/20 (二) 京都 ➔ 奈良公園 ➔ 大阪住一心齋橋9號店</span>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="day-content">
+                    <div class="timeline">
+                        <div class="event">
+                            <div class="time">09:15 - 12:30</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Todai-ji" target="_blank" class="map-link">奈良公園 & 東大寺 🦌 📍</a></div>
+                        </div>
+                        <div class="event">
+                            <div class="time">16:00 - 16:45</div>
+                            <div class="event-title">奈良 ➔ 近鐵日本橋站 (直達免轉乘)</div>
+                        </div>
+                        <div class="event">
+                            <div class="time">16:45 - 17:10</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Apartment+Hotel+11+Shinsaibashi+9" target="_blank" class="map-link">住一心齋橋9號店 Check-in 📍</a></div>
+                        </div>
+                    </div>
+                    <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=Apartment+Hotel+11+Shinsaibashi+9" target="_blank">住一心齋橋9號店 (Apartment Hotel 11) 📍</a></div>
+                </div>
+            </div>
+
+            <!-- Day 6 -->
+            <div class="day-card active">
+                <div class="day-header" onclick="toggleCard(this)">
+                    <div class="day-title">
+                        <span class="tag">D6</span>
+                        <span class="day-date">10/21 (三) 通天閣 ➔ 檸檬牛舌 ➔ 日本橋動漫(壽屋/Melon/虎穴) ➔ Harukas</span>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="day-content">
+                    <div class="timeline">
+                        <div class="event">
+                            <div class="time">08:50 - 10:40</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Tsutenkaku" target="_blank" class="map-link">通天閣 & 新世界散策 📍</a></div>
+                        </div>
+                        <div class="event">
+                            <div class="time">11:00 - 12:30</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Shinjuku+Yakiniku+Gyutan+no+Lemon+Osaka" target="_blank" class="map-link">【午餐】新宿燒肉 牛舌的檸檬 大阪本店 🍋 📍</a></div>
+                        </div>
+                        <div class="event">
+                            <div class="time">12:30 - 15:30</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Kotobukiya+Nipponbashi" target="_blank" class="map-link">日本橋動漫巡禮 (壽屋 / Animate / Melonbooks / 駿河屋) 🤖 📍</a></div>
+                            <div class="desc">
+                                🛍️ <b>壽屋 日本橋店：</b>關西最大旗艦店（手辦模型、MegaMi Device）。<br>
+                                🛍️ <b>Melonbooks：</b>Animate 大樓 4 樓同人誌專賣。<br>
+                                🛍️ <b>駿河屋：</b>內有「虎之穴出張所」。
+                            </div>
+                        </div>
+                        <div class="event">
+                            <div class="time">17:00 - 19:30</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Abeno+Harukas" target="_blank" class="map-link">阿倍野 Harukas 300 展望台 🏙️ 📍</a></div>
+                        </div>
+                    </div>
+                    <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=Apartment+Hotel+11+Shinsaibashi+9" target="_blank">住一心齋橋9號店 (Apartment Hotel 11) 📍</a></div>
+                </div>
+            </div>
+
+            <!-- Day 7 -->
+            <div class="day-card">
+                <div class="day-header" onclick="toggleCard(this)">
+                    <div class="day-title">
+                        <span class="tag">D7</span>
+                        <span class="day-date">10/22 (四) 海遊館 ➔ 中之島公園 ➔ 心齋橋(TSUTAYA戎橋)</span>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="day-content">
+                    <div class="timeline">
+                        <div class="event">
+                            <div class="time">09:15 - 12:30</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Osaka+Aquarium+Kaiyukan" target="_blank" class="map-link">大阪海遊館 & 天保山散策 🦈 📍</a></div>
+                        </div>
+                        <div class="event">
+                            <div class="time">13:00 - 15:30</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Nakanoshima+Park" target="_blank" class="map-link">中之島公園 (秋季玫瑰盛開) ➔ 河岸下午茶 📍</a></div>
+                        </div>
+                        <div class="event">
+                            <div class="time">16:00 - 19:30</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=TSUTAYA+EBISUBASHI" target="_blank" class="map-link">心齋橋商圈 / 蔦屋書店 戎橋店 📖 📍</a></div>
+                            <div class="desc">座落跑跑人看板旁，買完伴手禮徒步 6 分鐘直達住一心齋橋9號店。</div>
+                        </div>
+                    </div>
+                    <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=Apartment+Hotel+11+Shinsaibashi+9" target="_blank">住一心齋橋9號店 (Apartment Hotel 11) 📍</a></div>
+                </div>
+            </div>
+
+            <!-- Day 8 -->
+            <div class="day-card">
+                <div class="day-header" onclick="toggleCard(this)">
+                    <div class="day-title">
+                        <span class="tag">D8</span>
+                        <span class="day-date">10/23 (五) 包車前往機場 ➔ 免稅店大採買 ➔ 13:45 班機</span>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="day-content">
+                    <div class="timeline">
+                        <div class="event">
+                            <div class="time">09:45 - 10:50</div>
+                            <div class="event-title">包車直達關西機場第一航廈</div>
+                            <div class="desc">司機 09:45 於住一心齋橋9號店門口接送（約 55 分鐘車程）。</div>
+                        </div>
+                        <div class="event">
+                            <div class="time">10:55 - 13:15</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Kansai+International+Airport" target="_blank" class="map-link">辦理托運出境 ➔ 自由暢逛免稅店 🛍️ 📍</a></div>
+                            <div class="desc">11:00 完成報到，預留 1.5 小時採買伴手禮，13:15 登機。</div>
+                        </div>
                     </div>
                 </div>
-                <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=Apartment+Hotel+11+Shinsaibashi+9" target="_blank">住一心齋橋9號店 (Apartment Hotel 11 Shinsaibashi 9) 📍</a></div>
             </div>
+
         </div>
 
-        <!-- Day 7 -->
-        <div class="day-card">
-            <div class="day-header" onclick="toggleCard(this)">
-                <div class="day-title">
-                    <span class="tag">D7</span>
-                    <span class="day-date">10/22 (四) 海遊館 ➔ 中之島公園 ➔ 心齋橋(蔦屋書店)</span>
-                </div>
-                <span class="arrow">▼</span>
-            </div>
-            <div class="day-content">
-                <div class="timeline">
-                    <div class="event">
-                        <div class="time">09:15 - 12:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Osaka+Aquarium+Kaiyukan" target="_blank" class="map-link">大阪海遊館 & 天保山散策 🦈 📍</a></div>
-                    </div>
-                    <div class="event">
-                        <div class="time">13:00 - 15:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Nakanoshima+Park" target="_blank" class="map-link">中之島公園 (秋季玫瑰盛開) ➔ 河岸下午茶 📍</a></div>
-                    </div>
-                    <div class="event">
-                        <div class="time">16:00 - 19:30</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=TSUTAYA+EBISUBASHI" target="_blank" class="map-link">心齋橋商圈 / 蔦屋書店 戎橋店 📖 📍</a></div>
-                    </div>
-                </div>
-                <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=Apartment+Hotel+11+Shinsaibashi+9" target="_blank">住一心齋橋9號店 (Apartment Hotel 11 Shinsaibashi 9) 📍</a></div>
-            </div>
-        </div>
 
-        <!-- Day 8 -->
-        <div class="day-card">
-            <div class="day-header" onclick="toggleCard(this)">
-                <div class="day-title">
-                    <span class="tag">D8</span>
-                    <span class="day-date">10/23 (五) 包車前往機場 ➔ 關西機場免稅店 ➔ 13:45 班機</span>
+        <!-- 名產推薦分頁 (Page 2) -->
+        <div id="page-souvenir" class="page-section">
+
+            <div class="souvenir-category">🍡 京都必買名產 (D3 - D4)</div>
+            <div class="souvenir-card">
+                <div class="souvenir-item">
+                    <div class="souvenir-name">
+                        <span>1. 抹茶生八橋 (聖護院 / 井筒)</span>
+                        <span class="souvenir-loc">清水寺/祇園</span>
+                    </div>
+                    <div class="souvenir-desc">京都最具代表性的古典和菓子！QQ 的生餅皮包裹紅豆餡與香濃抹茶粉。</div>
                 </div>
-                <span class="arrow">▼</span>
-            </div>
-            <div class="day-content">
-                <div class="timeline">
-                    <div class="event">
-                        <div class="time">09:45 - 10:50</div>
-                        <div class="event-title">住一心齋橋9號店 包車直達 ➔ 關西機場第一航廈</div>
-                        <div class="meta-group"><span class="badge badge-transit">🚖 交通：預約包車司機 09:45 門口接送（約 55~60 分鐘車程）</span></div>
+                <div class="souvenir-item">
+                    <div class="souvenir-name">
+                        <span>2. 辻利抹茶夾心餅乾 (京茶の葉)</span>
+                        <span class="souvenir-loc">河原町/清水坂</span>
                     </div>
-                    <div class="event">
-                        <div class="time">10:55 - 13:15</div>
-                        <div class="event-title"><a href="https://maps.google.com/?q=Kansai+International+Airport" target="_blank" class="map-link">機場托運出境 ➔ 免稅店大採買 🛍️ 📍</a></div>
+                    <div class="souvenir-desc">濃郁抹茶貓舌餅乾包裹白巧克力，甘甜微苦，口感極佳，送禮首選！</div>
+                </div>
+                <div class="souvenir-item">
+                    <div class="souvenir-name">
+                        <span>3. 伊藤久右衛門 抹茶生巧克力</span>
+                        <span class="souvenir-loc">京都站/祇園</span>
                     </div>
-                    <div class="event">
-                        <div class="time">13:45</div>
-                        <div class="event-title">班機起飛 ✈️</div>
-                    </div>
+                    <div class="souvenir-desc">宇治茶老鋪製作，入口即化，帶有極為濃郁的宇治抹茶香。</div>
                 </div>
             </div>
+
+            <div class="souvenir-category">🦌 奈良必買名產 (D5)</div>
+            <div class="souvenir-card">
+                <div class="souvenir-item">
+                    <div class="souvenir-name">
+                        <span>1. 中谷堂 現打軟艾草麻糬</span>
+                        <span class="souvenir-loc">近鐵奈良站旁</span>
+                    </div>
+                    <div class="souvenir-desc">電視冠軍搗麻糬名店！現打出來的麻糬極度軟嫩，外層撒滿黃豆粉、包紅豆餡。</div>
+                </div>
+                <div class="souvenir-item">
+                    <div class="souvenir-name">
+                        <span>2. 柿葉壽司 (平宗 / 柿の葉すし)</span>
+                        <span class="souvenir-loc">近鐵奈良站</span>
+                    </div>
+                    <div class="souvenir-desc">奈良傳統名產，用柿子葉包裹押壽司（鮭魚/鯖魚），帶有淡淡草本清香。</div>
+                </div>
+            </div>
+
+            <div class="souvenir-category">🐙 大阪必買名產 (D6 - D7)</div>
+            <div class="souvenir-card">
+                <div class="souvenir-item">
+                    <div class="souvenir-name">
+                        <span>1. 大阪半熟起司塔 (PABLO / Rikuro 老爺爺)</span>
+                        <span class="souvenir-loc">心齋橋/難波</span>
+                    </div>
+                    <div class="souvenir-desc">老爺爺現烤起司蛋糕蓬鬆綿密、奶香濃郁，是心齋橋最熱門的人氣美食。</div>
+                </div>
+                <div class="souvenir-item">
+                    <div class="souvenir-name">
+                        <span>2. 固力果 Glico 跑跑人限定 Pocky</span>
+                        <span class="souvenir-loc">道頓堀 TSUTAYA</span>
+                    </div>
+                    <div class="souvenir-desc">大阪道頓堀限定的巨大版 Pocky 與章魚燒口味百力滋，包裝極具紀念價值。</div>
+                </div>
+                <div class="souvenir-item">
+                    <div class="souvenir-name">
+                        <span>3. 大阪焦糖奶油千層酥 (Bâton d'or)</span>
+                        <span class="souvenir-loc">難波高島屋</span>
+                    </div>
+                    <div class="souvenir-desc">固力果旗下的「Pocky 界的愛馬仕」！使用頂級奶油製作，香濃香醇。</div>
+                </div>
+            </div>
+
+            <div class="souvenir-category">✈️ 關西機場免稅店必買 (D8)</div>
+            <div class="souvenir-card">
+                <div class="souvenir-item">
+                    <div class="souvenir-name">
+                        <span>1. ROYCE' 抹茶/原味生巧克力</span>
+                        <span class="souvenir-loc">機場免稅店</span>
+                    </div>
+                    <div class="souvenir-desc">機場必買伴手禮第 1 名！附贈保冷袋，口感濃郁順滑。</div>
+                </div>
+                <div class="souvenir-item">
+                    <div class="souvenir-name">
+                        <span>2. 白色戀人 / 東京香蕉 (關西限定版)</span>
+                        <span class="souvenir-loc">機場免稅店</span>
+                    </div>
+                    <div class="souvenir-desc">出境管制區免稅店品項最齊全，適合最後一次購足。</div>
+                </div>
+            </div>
+
         </div>
 
     </div>
 
     <!-- 底部 Tab 列 -->
     <nav class="bottom-nav">
-        <a href="#" class="nav-item active">
+        <div class="nav-item active" onclick="switchPage('itinerary', this)">
             <span class="icon">📅</span>
             <span>行程明細</span>
-        </a>
-        <a href="https://www.google.com/maps" target="_blank" class="nav-item">
-            <span class="icon">🗺️</span>
-            <span>開啟地圖</span>
-        </a>
+        </div>
+        <div class="nav-item" onclick="switchPage('souvenir', this)">
+            <span class="icon">🍡</span>
+            <span>名產推薦</span>
+        </div>
     </nav>
 
     <script>
         function toggleCard(header) {
             const card = header.closest('.day-card');
             card.classList.toggle('active');
+        }
+
+        function switchPage(pageId, navEl) {
+            // 切換分頁顯示
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById('page-' + pageId).classList.add('active');
+
+            // 切換底部按鈕狀態
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            navEl.classList.add('active');
+
+            // 切換頂部標題文字
+            const headerTitle = document.getElementById('header-title');
+            const headerSub = document.getElementById('header-sub');
+            if (pageId === 'souvenir') {
+                headerTitle.innerText = "關西在地必買名產指南";
+                headerSub.innerText = "京都、奈良、大阪與機場免稅店熱門伴手禮";
+            } else {
+                headerTitle.innerText = "關西 8 天 7 夜家庭輕鬆遊";
+                headerSub.innerText = "大字清晰版 ｜ 行程與在地名產指南";
+            }
+
+            // 滾動回頂部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
