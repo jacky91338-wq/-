@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>關西 8 天 7 夜家庭輕鬆遊 (大字體 + 名產推薦版)</title>
+    <title>關西 8 天 7 夜家庭輕鬆遊 (大字體 + 名產美食指南)</title>
     <style>
         :root {
             --primary: #1d3557;
@@ -35,7 +35,7 @@
             background-color: var(--bg);
             color: var(--text-main);
             padding-bottom: 80px;
-            font-size: 18px; /* 全頁基本字體放大 */
+            font-size: 18px; /* 大字體基礎設定 */
             line-height: 1.6;
         }
 
@@ -51,7 +51,7 @@
         }
 
         header h1 {
-            font-size: 1.4rem; /* 標題放大 */
+            font-size: 1.4rem;
             font-weight: 800;
         }
 
@@ -175,7 +175,7 @@
 
         .map-link {
             color: var(--primary);
-            text-decoration: none;
+            text-decoration: underline;
         }
 
         .meta-group {
@@ -290,11 +290,12 @@
         }
 
         .souvenir-loc {
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             background: #edf2f7;
             color: #4a5568;
             padding: 2px 8px;
-            border-radius: 4px;
+            border-radius: 6px;
+            font-weight: 700;
         }
 
         .souvenir-desc {
@@ -606,8 +607,25 @@
         </div>
 
 
-        <!-- 名產推薦分頁 (Page 2) -->
+        <!-- 名產與美食推薦分頁 (Page 2) -->
         <div id="page-souvenir" class="page-section">
+
+            <div class="souvenir-category">🥪 大阪爆紅美食推薦 (D6 日本橋區)</div>
+            <div class="souvenir-card">
+                <div class="souvenir-item">
+                    <div class="souvenir-name">
+                        <span><a href="https://maps.google.com/?q=こんなにデカいサンドイッチは反則だ" target="_blank" class="map-link">DekaSan 超巨型三明治 🥪 📍</a></span>
+                        <span class="souvenir-loc">谷町九丁目/日本橋</span>
+                    </div>
+                    <div class="souvenir-desc">
+                        <b>「こんなにデカいサンドイッチは反則だ」</b>（這三明治大成這樣根本違法吧！）<br>
+                        🔥 <b>招牌推薦：</b><br>
+                        ・<b>400g 浮誇厚切牛橫膈膜三明治（レアハラミサンド）</b>：軟嫩多汁肉量爆棚！<br>
+                        ・<b>超巨型蛋白嫩蛋三明治（ぷわぷわ玉子サンド）</b>：烘烤打發蛋白，棉花糖般蓬鬆口感！<br>
+                        🕒 <b>營業時間：</b>11:00 - 16:00 (週一公休)
+                    </div>
+                </div>
+            </div>
 
             <div class="souvenir-category">🍡 京都必買名產 (D3 - D4)</div>
             <div class="souvenir-card">
@@ -707,7 +725,7 @@
         </div>
         <div class="nav-item" onclick="switchPage('souvenir', this)">
             <span class="icon">🍡</span>
-            <span>名產推薦</span>
+            <span>名產與美食</span>
         </div>
     </nav>
 
@@ -730,8 +748,8 @@
             const headerTitle = document.getElementById('header-title');
             const headerSub = document.getElementById('header-sub');
             if (pageId === 'souvenir') {
-                headerTitle.innerText = "關西在地必買名產指南";
-                headerSub.innerText = "京都、奈良、大阪與機場免稅店熱門伴手禮";
+                headerTitle.innerText = "關西在地名產與美食指南";
+                headerSub.innerText = "DekaSan 超大三明治、伴手禮與在地美食推薦";
             } else {
                 headerTitle.innerText = "關西 8 天 7 夜家庭輕鬆遊";
                 headerSub.innerText = "大字清晰版 ｜ 行程與在地名產指南";
