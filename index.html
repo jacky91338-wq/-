@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>關西 8 天 7 夜家庭輕鬆遊 (大字體 + 名產美食指南)</title>
+    <title>關西 8 天 7 夜家庭輕鬆遊 (完整交通版)</title>
     <style>
         :root {
             --primary: #1d3557;
@@ -35,7 +35,7 @@
             background-color: var(--bg);
             color: var(--text-main);
             padding-bottom: 80px;
-            font-size: 18px; /* 大字體基礎設定 */
+            font-size: 18px;
             line-height: 1.6;
         }
 
@@ -261,7 +261,6 @@
             text-decoration: underline;
         }
 
-        /* 名產推薦專區樣式 */
         .souvenir-category {
             font-size: 1.25rem;
             font-weight: 800;
@@ -395,7 +394,7 @@
             </div>
 
             <!-- Day 2 -->
-            <div class="day-card">
+            <div class="day-card active">
                 <div class="day-header" onclick="toggleCard(this)">
                     <div class="day-title">
                         <span class="tag">D2</span>
@@ -406,9 +405,27 @@
                 <div class="day-content">
                     <div class="timeline">
                         <div class="event">
+                            <div class="time">08:00 - 08:30</div>
+                            <div class="event-title">飯店 ➔ 大阪城公園 📍</div>
+                            <div class="meta-group"><span class="badge badge-transit">🚃 交通：Osaka Metro 谷町線（長堀橋站 ➔ 谷町四丁目站 1B出口）</span></div>
+                        </div>
+                        <div class="event">
                             <div class="time">08:30 - 11:30</div>
                             <div class="event-title"><a href="https://maps.google.com/?q=Osaka+Castle" target="_blank" class="map-link">大阪城公園 & 天守閣 📍</a></div>
                             <div class="meta-group"><span class="badge badge-hours">🕒 09:00 - 18:00</span></div>
+                        </div>
+                        <div class="event">
+                            <div class="time">11:30 - 11:50</div>
+                            <div class="event-title">大阪城 ➔ 梅田商圈</div>
+                            <div class="meta-group"><span class="badge badge-transit">🚃 交通：JR 環狀線（大阪城公園站 ➔ 大阪站）</span></div>
+                            <div class="train-schedule">
+                                <div class="title">⏱️ 車站時刻對照 (JR 環狀線外環)：</div>
+                                <ul>
+                                    <li>前一班：11:28 發車 ➔ 11:38 抵大阪</li>
+                                    <li class="target">預定班：11:35 發車 ➔ 11:45 抵大阪</li>
+                                    <li>後一班：11:43 發車 ➔ 11:53 抵大阪</li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="event">
                             <div class="time">11:50 - 16:00</div>
@@ -429,7 +446,7 @@
                 <div class="day-header" onclick="toggleCard(this)">
                     <div class="day-title">
                         <span class="tag">D3</span>
-                        <span class="day-date">10/18 (日) 大阪 ➔ 京都寄行李 ➔ 伏見稻荷 ➔ 嵐山</span>
+                        <span class="day-date">10/18 (日) 大阪 ➔ 京都寄行李 ➔ 伏見稻荷 ➔ 嵐山 ➔ 京都寶可夢中心</span>
                     </div>
                     <span class="arrow">▼</span>
                 </div>
@@ -447,6 +464,10 @@
                         <div class="event">
                             <div class="time">12:15 - 16:30</div>
                             <div class="event-title"><a href="https://maps.google.com/?q=Arashiyama+Bamboo+Grove" target="_blank" class="map-link">嵐山午餐 ➔ 渡月橋 ➔ 竹林小徑 📍</a></div>
+                        </div>
+                        <div class="event">
+                            <div class="time">17:00 - 18:30</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Pokemon+Center+Kyoto" target="_blank" class="map-link">京都寶可夢中心 (SUINA 室町 2F) ⚡ 📍</a></div>
                         </div>
                     </div>
                     <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=Daiwa+Roynet+Hotel+Kyoto-Shijo+Karasuma" target="_blank">京都四條烏丸大和ROYNET飯店 📍</a></div>
@@ -514,7 +535,7 @@
             </div>
 
             <!-- Day 6 -->
-            <div class="day-card active">
+            <div class="day-card">
                 <div class="day-header" onclick="toggleCard(this)">
                     <div class="day-title">
                         <span class="tag">D6</span>
@@ -535,11 +556,6 @@
                         <div class="event">
                             <div class="time">12:30 - 15:30</div>
                             <div class="event-title"><a href="https://maps.google.com/?q=Kotobukiya+Nipponbashi" target="_blank" class="map-link">日本橋動漫巡禮 (壽屋 / Animate / Melonbooks / 駿河屋) 🤖 📍</a></div>
-                            <div class="desc">
-                                🛍️ <b>壽屋 日本橋店：</b>關西最大旗艦店（手辦模型、MegaMi Device）。<br>
-                                🛍️ <b>Melonbooks：</b>Animate 大樓 4 樓同人誌專賣。<br>
-                                🛍️ <b>駿河屋：</b>內有「虎之穴出張所」。
-                            </div>
                         </div>
                         <div class="event">
                             <div class="time">17:00 - 19:30</div>
@@ -572,7 +588,6 @@
                         <div class="event">
                             <div class="time">16:00 - 19:30</div>
                             <div class="event-title"><a href="https://maps.google.com/?q=TSUTAYA+EBISUBASHI" target="_blank" class="map-link">心齋橋商圈 / 蔦屋書店 戎橋店 📖 📍</a></div>
-                            <div class="desc">座落跑跑人看板旁，買完伴手禮徒步 6 分鐘直達住一心齋橋9號店。</div>
                         </div>
                     </div>
                     <div class="hotel-box">🏨 住宿：<a href="https://maps.google.com/?q=Apartment+Hotel+11+Shinsaibashi+9" target="_blank">住一心齋橋9號店 (Apartment Hotel 11) 📍</a></div>
@@ -593,12 +608,10 @@
                         <div class="event">
                             <div class="time">09:45 - 10:50</div>
                             <div class="event-title">包車直達關西機場第一航廈</div>
-                            <div class="desc">司機 09:45 於住一心齋橋9號店門口接送（約 55 分鐘車程）。</div>
                         </div>
                         <div class="event">
                             <div class="time">10:55 - 13:15</div>
-                            <div class="event-title"><a href="https://maps.google.com/?q=Kansai+International+Airport" target="_blank" class="map-link">辦理托運出境 ➔ 自由暢逛免稅店 🛍️ 📍</a></div>
-                            <div class="desc">11:00 完成報到，預留 1.5 小時採買伴手禮，13:15 登機。</div>
+                            <div class="event-title"><a href="https://maps.google.com/?q=Kansai+International+Airport" target="_blank" class="map-link">辦理托運出境 ➔ 免稅店大採買 🛍️ 📍</a></div>
                         </div>
                     </div>
                 </div>
@@ -606,10 +619,8 @@
 
         </div>
 
-
         <!-- 名產與美食推薦分頁 (Page 2) -->
         <div id="page-souvenir" class="page-section">
-
             <div class="souvenir-category">🥪 大阪爆紅美食推薦 (D6 日本橋區)</div>
             <div class="souvenir-card">
                 <div class="souvenir-item">
@@ -618,11 +629,8 @@
                         <span class="souvenir-loc">谷町九丁目/日本橋</span>
                     </div>
                     <div class="souvenir-desc">
-                        <b>「こんなにデカいサンドイッチは反則だ」</b>（這三明治大成這樣根本違法吧！）<br>
-                        🔥 <b>招牌推薦：</b><br>
-                        ・<b>400g 浮誇厚切牛橫膈膜三明治（レアハラミサンド）</b>：軟嫩多汁肉量爆棚！<br>
-                        ・<b>超巨型蛋白嫩蛋三明治（ぷわぷわ玉子サンド）</b>：烘烤打發蛋白，棉花糖般蓬鬆口感！<br>
-                        🕒 <b>營業時間：</b>11:00 - 16:00 (週一公休)
+                        <b>「こんなにデカいサンドイッチは反則だ」</b><br>
+                        🔥 400g 浮誇厚切牛橫膈膜三明治、超巨型蛋白嫩蛋三明治！
                     </div>
                 </div>
             </div>
@@ -634,85 +642,9 @@
                         <span>1. 抹茶生八橋 (聖護院 / 井筒)</span>
                         <span class="souvenir-loc">清水寺/祇園</span>
                     </div>
-                    <div class="souvenir-desc">京都最具代表性的古典和菓子！QQ 的生餅皮包裹紅豆餡與香濃抹茶粉。</div>
-                </div>
-                <div class="souvenir-item">
-                    <div class="souvenir-name">
-                        <span>2. 辻利抹茶夾心餅乾 (京茶の葉)</span>
-                        <span class="souvenir-loc">河原町/清水坂</span>
-                    </div>
-                    <div class="souvenir-desc">濃郁抹茶貓舌餅乾包裹白巧克力，甘甜微苦，口感極佳，送禮首選！</div>
-                </div>
-                <div class="souvenir-item">
-                    <div class="souvenir-name">
-                        <span>3. 伊藤久右衛門 抹茶生巧克力</span>
-                        <span class="souvenir-loc">京都站/祇園</span>
-                    </div>
-                    <div class="souvenir-desc">宇治茶老鋪製作，入口即化，帶有極為濃郁的宇治抹茶香。</div>
+                    <div class="souvenir-desc">京都最具代表性的古典和菓子！</div>
                 </div>
             </div>
-
-            <div class="souvenir-category">🦌 奈良必買名產 (D5)</div>
-            <div class="souvenir-card">
-                <div class="souvenir-item">
-                    <div class="souvenir-name">
-                        <span>1. 中谷堂 現打軟艾草麻糬</span>
-                        <span class="souvenir-loc">近鐵奈良站旁</span>
-                    </div>
-                    <div class="souvenir-desc">電視冠軍搗麻糬名店！現打出來的麻糬極度軟嫩，外層撒滿黃豆粉、包紅豆餡。</div>
-                </div>
-                <div class="souvenir-item">
-                    <div class="souvenir-name">
-                        <span>2. 柿葉壽司 (平宗 / 柿の葉すし)</span>
-                        <span class="souvenir-loc">近鐵奈良站</span>
-                    </div>
-                    <div class="souvenir-desc">奈良傳統名產，用柿子葉包裹押壽司（鮭魚/鯖魚），帶有淡淡草本清香。</div>
-                </div>
-            </div>
-
-            <div class="souvenir-category">🐙 大阪必買名產 (D6 - D7)</div>
-            <div class="souvenir-card">
-                <div class="souvenir-item">
-                    <div class="souvenir-name">
-                        <span>1. 大阪半熟起司塔 (PABLO / Rikuro 老爺爺)</span>
-                        <span class="souvenir-loc">心齋橋/難波</span>
-                    </div>
-                    <div class="souvenir-desc">老爺爺現烤起司蛋糕蓬鬆綿密、奶香濃郁，是心齋橋最熱門的人氣美食。</div>
-                </div>
-                <div class="souvenir-item">
-                    <div class="souvenir-name">
-                        <span>2. 固力果 Glico 跑跑人限定 Pocky</span>
-                        <span class="souvenir-loc">道頓堀 TSUTAYA</span>
-                    </div>
-                    <div class="souvenir-desc">大阪道頓堀限定的巨大版 Pocky 與章魚燒口味百力滋，包裝極具紀念價值。</div>
-                </div>
-                <div class="souvenir-item">
-                    <div class="souvenir-name">
-                        <span>3. 大阪焦糖奶油千層酥 (Bâton d'or)</span>
-                        <span class="souvenir-loc">難波高島屋</span>
-                    </div>
-                    <div class="souvenir-desc">固力果旗下的「Pocky 界的愛馬仕」！使用頂級奶油製作，香濃香醇。</div>
-                </div>
-            </div>
-
-            <div class="souvenir-category">✈️ 關西機場免稅店必買 (D8)</div>
-            <div class="souvenir-card">
-                <div class="souvenir-item">
-                    <div class="souvenir-name">
-                        <span>1. ROYCE' 抹茶/原味生巧克力</span>
-                        <span class="souvenir-loc">機場免稅店</span>
-                    </div>
-                    <div class="souvenir-desc">機場必買伴手禮第 1 名！附贈保冷袋，口感濃郁順滑。</div>
-                </div>
-                <div class="souvenir-item">
-                    <div class="souvenir-name">
-                        <span>2. 白色戀人 / 東京香蕉 (關西限定版)</span>
-                        <span class="souvenir-loc">機場免稅店</span>
-                    </div>
-                    <div class="souvenir-desc">出境管制區免稅店品項最齊全，適合最後一次購足。</div>
-                </div>
-            </div>
-
         </div>
 
     </div>
@@ -736,26 +668,10 @@
         }
 
         function switchPage(pageId, navEl) {
-            // 切換分頁顯示
             document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
             document.getElementById('page-' + pageId).classList.add('active');
-
-            // 切換底部按鈕狀態
             document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
             navEl.classList.add('active');
-
-            // 切換頂部標題文字
-            const headerTitle = document.getElementById('header-title');
-            const headerSub = document.getElementById('header-sub');
-            if (pageId === 'souvenir') {
-                headerTitle.innerText = "關西在地名產與美食指南";
-                headerSub.innerText = "DekaSan 超大三明治、伴手禮與在地美食推薦";
-            } else {
-                headerTitle.innerText = "關西 8 天 7 夜家庭輕鬆遊";
-                headerSub.innerText = "大字清晰版 ｜ 行程與在地名產指南";
-            }
-
-            // 滾動回頂部
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
